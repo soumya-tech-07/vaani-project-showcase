@@ -32,7 +32,7 @@ export function ProductNav({ title, liveUrl }: ProductNavProps) {
           href={liveUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold text-[#17252b] transition-transform hover:scale-105 sm:flex"
+          className="hidden items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold text-[var(--project-text)] transition-transform hover:scale-105 sm:flex"
         >
           Visit {title}
           <ArrowUpRight className="w-4 h-4" />

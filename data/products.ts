@@ -21,7 +21,24 @@ export interface ProductCTA {
   secondaryUrl: string;
 }
 
+export interface ProductTheme {
+  primary: string;
+  secondary: string;
+  background: string;
+  text: string;
+  accent: string;
+  border: string;
+  highlight: string;
+  surface?: string;
+}
+
+export interface ProductMetadata {
+  heroBadge: string;
+  heroSubtext: string;
+}
+
 export interface Product {
+  showcase?: 'standard' | 'crm';
   slug: string;
   title: string;
   shortDescription: string;
@@ -41,6 +58,9 @@ export interface Product {
   userJourney: ProductJourneyStep[];
   CTA: ProductCTA;
   status: 'live' | 'beta' | 'development';
+  theme?: ProductTheme;
+  metadata?: ProductMetadata;
+  sections?: ('hero' | 'preview' | 'story' | 'demo' | 'features' | 'gallery' | 'journey' | 'process' | 'tech' | 'cta' | 'inbox' | 'leads' | 'contacts')[];
 }
 
 export const vaaniProduct: Product = {
@@ -108,10 +128,73 @@ export const vaaniProduct: Product = {
     secondaryUrl: 'https://vaani.rianinfotech.com/#features',
   },
   status: 'live',
+  theme: {
+    primary: '#336C85',
+    secondary: '#7eafba',
+    background: '#588094',
+    text: '#2B3128',
+    accent: '#b8ff00',
+    border: '#E0E3E2',
+    highlight: '#9FBCCD',
+    surface: '#FEFEFE',
+  },
+  metadata: {
+    heroBadge: 'Voice to clean text',
+    heroSubtext: 'voice workspace',
+  },
+  sections: ['hero', 'preview', 'story', 'demo', 'features', 'gallery', 'journey', 'process', 'tech', 'cta'],
 };
 
 export const products: Product[] = [
   vaaniProduct,
+  {
+    showcase: 'crm',
+    slug: 'whatsapp-business-inbox',
+    title: 'WhatsApp Business Inbox',
+    shortDescription: 'A centralized workspace for managing conversations, contacts, lead qualification, and customer activity.',
+    tagline: 'Turn WhatsApp conversations into organized customer workflows.',
+    category: 'CRM / Communication / AI',
+    year: '2026',
+    // No product screenshots or public URL are included in this repository.
+    // The case study therefore uses the implemented dashboard UI below.
+    heroImage: '',
+    logo: '',
+    liveUrl: '#inbox',
+    videoUrl: '#workflow',
+    screenshots: [],
+    features: [],
+    problem: 'Customer conversations can live in WhatsApp while contact details and lead status live somewhere else, making follow-up difficult to track.',
+    solution: 'WhatsApp Business Inbox brings conversations, contacts, lead classification, and customer activity into one workspace.',
+    howItWorks: [
+      { step: 'Conversation', description: 'A customer conversation is available in the shared inbox.' },
+      { step: 'Qualification', description: 'The workspace supports AI qualification and lead classification.' },
+      { step: 'Follow-up', description: 'Sales context stays alongside the conversation for the next action.' },
+    ],
+    technology: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS'],
+    userJourney: [],
+    CTA: {
+      primaryText: 'Explore Product',
+      primaryUrl: '#inbox',
+      secondaryText: 'Back to Projects',
+      secondaryUrl: '/',
+    },
+    status: 'development',
+    theme: {
+      primary: '#25D366',
+      secondary: '#66736B',
+      background: '#F7F9F8',
+      text: '#17211B',
+      accent: '#128C7E',
+      border: '#E2E8E4',
+      highlight: '#E8F8EE',
+      surface: '#FFFFFF',
+    },
+    metadata: {
+      heroBadge: 'Customer communication',
+      heroSubtext: 'shared inbox',
+    },
+    sections: ['hero', 'story', 'inbox', 'leads', 'contacts', 'process', 'tech', 'cta'],
+  },
   {
     slug: 'lumina',
     title: 'Lumina',
@@ -168,6 +251,21 @@ export const products: Product[] = [
       secondaryUrl: 'https://youtube.com/watch?v=example1',
     },
     status: 'live',
+    theme: {
+      primary: '#7C3AED',
+      secondary: '#A78BFA',
+      background: '#F5F3FF',
+      text: '#1E1B4B',
+      accent: '#F59E0B',
+      border: '#DDD6FE',
+      highlight: '#EDE9FE',
+      surface: '#FFFFFF',
+    },
+    metadata: {
+      heroBadge: 'AI design systems',
+      heroSubtext: 'scalable UI libraries',
+    },
+    sections: ['hero', 'preview', 'story', 'demo', 'features', 'gallery', 'journey', 'process', 'tech', 'cta'],
   },
   {
     slug: 'flux',

@@ -22,11 +22,11 @@ const projects: Project[] = [
     image: "/vaaniHover.png",
   },
   {
-    title: "Flux",
-    description: "Real-time collaboration for creative teams.",
-    year: "2024",
-    link: "/products/flux",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
+    title: "WhatsApp Business Inbox",
+    description: "A shared workspace for WhatsApp conversations, contacts, and lead workflows.",
+    year: "2026",
+    link: "/products/whatsapp-business-inbox",
+    image: "/vaaniHover.png",
   },
   {
     title: "Prism",
