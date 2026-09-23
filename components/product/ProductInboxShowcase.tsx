@@ -20,15 +20,15 @@ export function ProductInboxShowcase({ product }: ProductInboxShowcaseProps) {
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 rounded-2xl border border-[var(--project-border)] bg-white shadow-xl overflow-hidden">
           {/* Sidebar */}
-          <div className="lg:col-span-3 border-r border-[var(--project-border)] bg-[#F0F4F3] p-4 space-y-6">
+          <div className="lg:col-span-3 border-r border-[var(--project-border)] bg-[var(--project-highlight)] p-4 space-y-6">
             <div className="space-y-2">
               <div className="flex items-center gap-3 p-2 rounded-lg bg-[var(--project-primary)] text-white font-medium text-sm cursor-pointer">
                 <span>Inbox</span>
               </div>
-              <div className="flex items-center gap-3 p-2 rounded-lg text-[var(--project-secondary)] hover:bg-gray-100 transition-colors text-sm cursor-pointer">
+              <div className="flex items-center gap-3 p-2 rounded-lg text-[var(--project-secondary)] hover:bg-[var(--project-highlight)] transition-colors text-sm cursor-pointer">
                 <span>Contacts</span>
               </div>
-              <div className="flex items-center gap-3 p-2 rounded-lg text-[var(--project-secondary)] hover:bg-gray-100 transition-colors text-sm cursor-pointer">
+              <div className="flex items-center gap-3 p-2 rounded-lg text-[var(--project-secondary)] hover:bg-[var(--project-highlight)] transition-colors text-sm cursor-pointer">
                 <span>Projects</span>
               </div>
             </div>
@@ -50,25 +50,25 @@ export function ProductInboxShowcase({ product }: ProductInboxShowcaseProps) {
                 { name: "Mike Ross", msg: "Can we schedule a call?", time: "2 days ago", status: "read" },
                 { name: "Emma Wilson", msg: "Where can I find the pricing?", time: "3 days ago", status: "read" },
               ].map((chat, i) => (
-                <div key={i} className={`p-4 flex justify-between items-start cursor-pointer hover:bg-gray-50 transition-colors ${i === 0 ? 'bg-blue-50' : ''}`}>
+                <div key={i} className={`p-4 flex justify-between items-start cursor-pointer hover:bg-[var(--project-highlight)] transition-colors ${i === 0 ? 'bg-[var(--project-highlight)]' : ''}`}>
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
                       <span className="font-semibold text-sm text-[var(--project-text)]">{chat.name}</span>
-                      {chat.status === 'unread' && <span className="h-2 w-2 rounded-full bg-blue-500" />}
+                      {chat.status === 'unread' && <span className="h-2 w-2 rounded-full bg-[var(--project-accent)]" />}
                     </div>
                     <p className="text-xs text-[var(--project-secondary)] truncate w-48">{chat.msg}</p>
                   </div>
-                  <span className="text-[10px] text-gray-400">{chat.time}</span>
+                  <span className="text-[10px] text-[var(--project-secondary)]">{chat.time}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Chat Window */}
-          <div className="lg:col-span-5 flex flex-col bg-[#F9FAFB]">
+          <div className="lg:col-span-5 flex flex-col bg-[var(--project-bg)]">
             <div className="p-4 border-b border-[var(--project-border)] bg-white flex justify-between items-center">
               <div className="flex items-center gap-3">
-                <div className="h-8 w-8 rounded-full bg-gray-200" />
+                <div className="h-8 w-8 rounded-full bg-[var(--project-highlight)]" />
                 <span className="font-semibold text-sm text-[var(--project-text)]">John Doe</span>
               </div>
               <span className="text-[10px] px-2 py-1 rounded-full bg-[var(--project-soft-green)] text-[var(--project-primary)] font-medium">
