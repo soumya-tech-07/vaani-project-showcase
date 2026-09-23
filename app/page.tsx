@@ -2,7 +2,7 @@ import { ProjectShowcase } from "../components/ui/project-showcase";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background flex items-center justify-center w-full max-w-xl mx-auto">
+    <main className="min-h-screen w-full">
       <ProjectShowcase />
     </main>
   );
