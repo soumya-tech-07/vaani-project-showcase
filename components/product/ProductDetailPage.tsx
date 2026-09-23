@@ -42,6 +42,7 @@ export function ProductDetailPage({ product }: ProductDetailPageProps) {
     '--project-border': theme.border,
     '--project-highlight': theme.highlight,
     '--project-surface': theme.surface || '#FFFFFF',
+    '--project-soft-green': theme.highlight,
   } as React.CSSProperties;
 
   const renderSection = (section: string) => {
