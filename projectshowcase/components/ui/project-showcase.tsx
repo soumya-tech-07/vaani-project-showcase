@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { useState, useRef, useEffect } from "react"
+import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 
 interface Project {
@@ -130,59 +131,68 @@ export function ProjectShowcase() {
 
       <div className="space-y-0">
         {projects.map((project, index) => (
-          <a
+          <motion.a
             key={project.title}
             href={project.link}
             className="group block"
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={handleMouseLeave}
+            whileHover={{
+              y: -8,
+              scale: 1.01,
+              rotateX: 2,
+              rotateY: -2,
+              transition: { type: "spring", stiffness: 240, damping: 18 },
+            }}
+            style={{ transformPerspective: 1200 }}
           >
             <div className="relative py-5 border-t border-border transition-all duration-300 ease-out">
               {/* Background highlight on hover */}
-              <div
-                className={`
-                  absolute inset-0 -mx-4 px-4 bg-secondary/50 rounded-lg
-                  transition-all duration-300 ease-out
-                  ${hoveredIndex === index ? "opacity-100 scale-100" : "opacity-0 scale-95"}
-                `}
+              <motion.div
+                className="absolute inset-0 -mx-4 rounded-lg bg-secondary/50 px-4"
+                initial={false}
+                animate={{
+                  opacity: hoveredIndex === index ? 1 : 0,
+                  scale: hoveredIndex === index ? 1 : 0.95,
+                }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
               />
 
               <div className="relative flex items-start justify-between gap-4">
                 <div className="flex-1 min-w-0">
                   {/* Title with animated underline */}
                   <div className="inline-flex items-center gap-2">
-                    <h3 className="text-foreground font-medium text-lg tracking-tight">
+                    <h3 className="text-foreground text-lg font-medium tracking-tight">
                       <span className="relative">
                         {project.title}
                         {/* Animated underline */}
-                        <span
-                          className={`
-                            absolute left-0 -bottom-0.5 h-px bg-foreground
-                            transition-all duration-300 ease-out
-                            ${hoveredIndex === index ? "w-full" : "w-0"}
-                          `}
+                        <motion.span
+                          className="absolute -bottom-0.5 left-0 h-px bg-foreground"
+                          initial={false}
+                          animate={{ width: hoveredIndex === index ? "100%" : 0 }}
+                          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                         />
                       </span>
                     </h3>
 
                     {/* Arrow that slides in */}
-                    <ArrowUpRight
-                      className={`
-                        w-4 h-4 text-muted-foreground
-                        transition-all duration-300 ease-out
-                        ${
-                          hoveredIndex === index
-                            ? "opacity-100 translate-x-0 translate-y-0"
-                            : "opacity-0 -translate-x-2 translate-y-2"
-                        }
-                      `}
-                    />
+                    <motion.div
+                      initial={false}
+                      animate={{
+                        opacity: hoveredIndex === index ? 1 : 0,
+                        x: hoveredIndex === index ? 0 : -8,
+                        y: hoveredIndex === index ? 0 : 6,
+                      }}
+                      transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
+                    >
+                      <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
+                    </motion.div>
                   </div>
 
                   {/* Description with fade effect */}
                   <p
                     className={`
-                      text-muted-foreground text-sm mt-1 leading-relaxed
+                      mt-1 text-sm leading-relaxed text-muted-foreground
                       transition-all duration-300 ease-out
                       ${hoveredIndex === index ? "text-foreground/70" : "text-muted-foreground"}
                     `}
@@ -203,7 +213,7 @@ export function ProjectShowcase() {
                 </span>
               </div>
             </div>
-          </a>
+          </motion.a>
         ))}
 
         {/* Bottom border for last item */}

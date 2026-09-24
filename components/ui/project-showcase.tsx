@@ -2,6 +2,9 @@
 
 import { ArrowRight, ArrowUpRight, Check, Circle, Sparkles } from "lucide-react"
 import { products } from "@/data/products"
+import { GlowingEffect } from "@/components/ui/glowing-effect"
+import ArrowFillButton from "@/components/ui/arrow-fill-button"
+import { DiaTextReveal } from "@/components/ui/dia-text-reveal"
 
 const hrefFor = (slug: string) => (slug === "vaani" ? "/vaani" : `/products/${slug}`)
 
@@ -43,10 +46,10 @@ export function ProjectShowcase() {
                     <span className="h-2 w-2 animate-pulse rounded-full bg-[#2838D8]" /> Independent product studio
                   </div>
                   <h1 className="mb-6 text-4xl font-extrabold leading-[1.08] tracking-[-0.07em] sm:text-6xl">
-                    Products we&apos;ve built.<br />
-                    <span className="bg-gradient-to-r from-[#2838D8] to-[#7C2EDB] bg-clip-text text-transparent">Ideas turned into software.</span>
+                    <DiaTextReveal as="span" text="Products we've built." className="block" />
+                    <DiaTextReveal as="span" text="Ideas turned into software." className="block" delay={0.16} />
                   </h1>
-                  <p className="max-w-2xl text-base leading-relaxed text-[#475569] sm:text-lg">
+                  <p className="crm-reveal max-w-2xl text-base leading-relaxed text-[#475569] sm:text-lg" style={{ animationDelay: "120ms" }}>
                     Explore our product portfolio across speech intelligence, customer operations, and focused workflow tools. Carefully architected, deployed to production, and built for everyday mastery.
                   </p>
                 </div>
@@ -83,10 +86,20 @@ export function ProjectShowcase() {
             <div className="reveal-on-scroll grid items-center gap-8 lg:grid-cols-12">
               <a href={hrefFor(featured.slug)} className="group lg:col-span-7"><Preview product={featured} featured /></a>
               <div className="lg:col-span-5 lg:pl-8">
-                <div className="mb-5 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#7C2EDB]"><Sparkles className="h-4 w-4" /> Voice intelligence</div>
-                <h3 className="text-4xl font-black leading-[0.95] tracking-[-0.07em] sm:text-6xl">Just speak.<br /><span className="text-[#2838D8]">Vaani writes.</span></h3>
-                <p className="mt-6 text-base leading-relaxed text-[#475569]">{featured.shortDescription}</p>
-                <a href={hrefFor(featured.slug)} className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#2438E8] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#2838D8]">Open Vaani route <ArrowUpRight className="h-4 w-4" /></a>
+                <div className="crm-reveal mb-5 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#7C2EDB]"><Sparkles className="h-4 w-4" /> Voice intelligence</div>
+                <h3 className="text-4xl font-black leading-[0.95] tracking-[-0.07em] sm:text-6xl"><DiaTextReveal as="span" text="Just speak." className="block" /><DiaTextReveal as="span" text="Vaani writes." className="block" delay={0.16} textColor="#2838D8" /></h3>
+                <p className="crm-reveal mt-6 text-base leading-relaxed text-[#475569]" style={{ animationDelay: "180ms" }}>{featured.shortDescription}</p>
+                <ArrowFillButton
+                  href={hrefFor(featured.slug)}
+                  btnText="Open Vaani route"
+                  bgColor="#2438E8"
+                  textColor="#ffffff"
+                  fillBgColor="#b8ff00"
+                  fillTextColor="#111827"
+                  hoverFillBgColor="#dfff80"
+                  hoverFillTextColor="#111827"
+                  className="mt-8"
+                />
               </div>
             </div>
           </div>
@@ -95,16 +108,17 @@ export function ProjectShowcase() {
         <section id="products" className="bg-white py-20 md:py-28">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-8 flex items-end justify-between border-b border-[#E2E8F0] pb-5">
-              <div><p className="text-xs font-mono font-bold uppercase tracking-widest text-[#2838D8]">The product index</p><h2 className="mt-2 text-3xl font-black tracking-[-0.06em] sm:text-5xl">Built for the next useful thing.</h2></div>
+              <div><p className="text-xs font-mono font-bold uppercase tracking-widest text-[#2838D8]">The product index</p><h2 className="mt-2 text-3xl font-black tracking-[-0.06em] sm:text-5xl"><DiaTextReveal as="span" text="Built for the next useful thing." /></h2></div>
               <span className="hidden font-mono text-xs text-[#64748B] sm:block">01 — {String(indexProducts.length).padStart(2, "0")}</span>
             </div>
             <div className="divide-y divide-[#E2E8F0]">
               {indexProducts.map((product, index) => (
-                <a key={product.slug} href={hrefFor(product.slug)} className="product-index-row group grid gap-5 py-7 transition hover:-translate-y-0.5 hover:bg-[#F8FAFC] lg:grid-cols-12 lg:items-center lg:px-3">
-                  <div className="flex items-baseline gap-3 lg:col-span-1"><span className="font-mono text-3xl font-extrabold tracking-[-0.08em] text-[#111827] transition group-hover:text-[#2838D8]">{String(index + 2).padStart(2, "0")}</span><span className="text-[10px] font-mono uppercase text-[#64748B] lg:hidden">{product.category}</span></div>
-                  <div className="lg:col-span-3"><div className="mb-1 flex items-center gap-2"><span className="rounded bg-[#EEF0FF] px-2 py-0.5 text-[10px] font-mono font-bold uppercase text-[#7C2EDB]">{product.status}</span><span className="text-[11px] font-mono text-[#64748B]">{product.year}</span></div><h3 className="text-2xl font-black tracking-tight transition group-hover:text-[#2838D8]">{product.title}</h3><p className="text-xs font-mono text-[#64748B]">{product.category}</p></div>
-                  <p className="text-sm leading-relaxed text-[#475569] lg:col-span-4">{product.shortDescription}</p>
-                  <div className="flex items-center justify-between gap-4 lg:col-span-4 lg:justify-end"><div className="hidden h-10 w-16 items-center justify-center overflow-hidden border border-[#E2E8F0] bg-[#EEF0FF] text-[10px] font-mono font-bold text-[#2838D8] sm:flex">{product.title.slice(0, 3).toUpperCase()}</div><span className="grid h-10 w-10 place-items-center rounded-full border border-[#E2E8F0] transition group-hover:border-[#2838D8] group-hover:bg-[#2838D8] group-hover:text-white"><ArrowRight className="action-arrow h-4 w-4 transition-transform group-hover:translate-x-1" /></span></div>
+                <a key={product.slug} href={hrefFor(product.slug)} className="product-index-row group relative grid gap-5 overflow-hidden rounded-3xl border border-[#E2E8F0] bg-white px-4 py-7 transition duration-300 hover:-translate-y-1 hover:shadow-lg lg:grid-cols-12 lg:items-center lg:px-6">
+                  <GlowingEffect disabled={false} glow spread={36} proximity={48} inactiveZone={0.2} borderWidth={4} />
+                  <div className="relative flex items-baseline gap-3 lg:col-span-1"><span className="crm-reveal font-mono text-3xl font-extrabold tracking-[-0.08em] text-[#111827] transition group-hover:text-[#2838D8]" style={{ animationDelay: `${index * 60}ms` }}>{String(index + 2).padStart(2, "0")}</span><span className="crm-reveal text-[10px] font-mono uppercase text-[#64748B] lg:hidden" style={{ animationDelay: `${index * 60 + 40}ms` }}>{product.category}</span></div>
+                  <div className="relative lg:col-span-3"><div className="mb-1 flex items-center gap-2"><span className="rounded bg-[#EEF0FF] px-2 py-0.5 text-[10px] font-mono font-bold uppercase text-[#7C2EDB]">{product.status}</span><span className="text-[11px] font-mono text-[#64748B]">{product.year}</span></div><h3 className="text-2xl font-black tracking-tight transition-all duration-300 group-hover:translate-x-1 group-hover:tracking-[-0.02em] group-hover:text-[#2838D8]"><DiaTextReveal as="span" text={product.title} /></h3><p className="text-xs font-mono text-[#64748B]">{product.category}</p></div>
+                  <p className="crm-reveal relative text-sm leading-relaxed text-[#475569] lg:col-span-4" style={{ animationDelay: `${index * 60 + 160}ms` }}>{product.shortDescription}</p>
+                  <div className="relative flex items-center justify-between gap-4 lg:col-span-4 lg:justify-end"><div className="hidden h-10 w-16 items-center justify-center overflow-hidden border border-[#E2E8F0] bg-[#EEF0FF] text-[10px] font-mono font-bold text-[#2838D8] transition-transform duration-300 group-hover:scale-105 sm:flex">{product.title.slice(0, 3).toUpperCase()}</div><span className="grid h-10 w-10 place-items-center rounded-full border border-[#E2E8F0] transition duration-300 group-hover:border-[#2838D8] group-hover:bg-[#2838D8] group-hover:text-white"><ArrowRight className="action-arrow h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110" /></span></div>
                 </a>
               ))}
             </div>
@@ -114,8 +128,8 @@ export function ProjectShowcase() {
         <section id="contact" className="relative overflow-hidden border-t border-white/10 bg-[#111827] py-24 text-white sm:py-32">
           <div className="pointer-events-none absolute right-[-10rem] top-[-10rem] h-[30rem] w-[30rem] rounded-full bg-[#7C2EDB]/20 blur-[100px] ambient-orb ambient-orb-purple" />
           <div className="relative mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
-            <div className="lg:col-span-8"><p className="mb-5 text-xs font-mono font-bold uppercase tracking-widest text-[#B9ADFF]">Have a real problem to solve?</p><h2 className="max-w-4xl text-5xl font-black leading-[0.9] tracking-[-0.08em] sm:text-7xl">Let&apos;s build something <span className="text-[#B9ADFF]">useful.</span></h2></div>
-            <div className="lg:col-span-4 lg:pt-10"><p className="text-sm leading-relaxed text-white/60">We partner with teams who value clarity, speed, and software that earns its place in the workflow.</p><a href="mailto:hello@rianinfotech.com" className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-[#111827] transition hover:bg-[#EEF0FF]">Start a conversation <ArrowUpRight className="h-4 w-4" /></a></div>
+            <div className="lg:col-span-8"><p className="mb-5 text-xs font-mono font-bold uppercase tracking-widest text-[#B9ADFF]">Have a real problem to solve?</p><h2 className="max-w-4xl text-5xl font-black leading-[0.9] tracking-[-0.08em] sm:text-7xl"><DiaTextReveal as="span" text="Let's build something" className="inline" textColor="#ffffff" />{" "}<DiaTextReveal as="span" text="useful." className="inline" textColor="#B9ADFF" delay={0.16} /></h2></div>
+            <div className="lg:col-span-4 lg:pt-10"><p className="crm-reveal text-sm leading-relaxed text-white/60" style={{ animationDelay: "180ms" }}>We partner with teams who value clarity, speed, and software that earns its place in the workflow.</p><a href="mailto:hello@rianinfotech.com" className="crm-reveal mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-[#111827] transition hover:bg-[#EEF0FF]" style={{ animationDelay: "260ms" }}>Start a conversation <ArrowUpRight className="h-4 w-4" /></a></div>
           </div>
         </section>
       </main>

@@ -145,7 +145,8 @@ select {
   .ambient-orb-purple,
   .reveal-on-load,
   .reveal-on-scroll,
-  .product-visual-shimmer {
+  .product-visual-shimmer,
+  .crm-reveal {
     animation: none;
   }
 
