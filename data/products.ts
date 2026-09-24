@@ -197,7 +197,7 @@ export const products: Product[] = [
   },
   {
     slug: 'lumina',
-    title: 'Lumina',
+    title: 'Product 1',
     shortDescription: 'AI-powered design system generator that creates consistent, scalable UI libraries in seconds.',
     tagline: 'Design Systems at the Speed of Thought',
     category: 'AI / Design Tool',
@@ -269,7 +269,7 @@ export const products: Product[] = [
   },
   {
     slug: 'flux',
-    title: 'Flux',
+    title: 'Product 2',
     shortDescription: 'Real-time collaboration for creative teams to iterate faster on complex visual projects.',
     tagline: 'Creative Synergy, Redefined',
     category: 'Collaboration / Productivity',
@@ -326,7 +326,7 @@ export const products: Product[] = [
   },
   {
     slug: 'prism',
-    title: 'Prism',
+    title: 'Product 3',
     shortDescription: 'Advanced color palette extraction and harmony analysis from any visual source.',
     tagline: 'The Science of Color, Simplified',
     category: 'Utility / Design',
@@ -383,7 +383,7 @@ export const products: Product[] = [
   },
   {
     slug: 'vertex',
-    title: 'Vertex',
+    title: 'Product 4',
     shortDescription: 'Professional 3D modeling and rendering toolkit built entirely for the web browser.',
     tagline: '3D Creation, Unbound',
     category: 'Graphics / Tool',
@@ -440,7 +440,7 @@ export const products: Product[] = [
   },
   ...Array.from({ length: 8 }).map((_, i) => ({
     slug: `product-${i + 1}`,
-    title: `Product ${i + 1}`,
+    title: `Product ${i + 5}`,
     shortDescription: 'A premium product description placeholder for future project details.',
     tagline: 'Pushing the boundaries of digital experiences',
     category: 'Software / SaaS',

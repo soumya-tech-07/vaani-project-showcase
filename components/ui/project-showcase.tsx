@@ -105,15 +105,15 @@ export function ProjectShowcase() {
           </div>
         </section>
 
-        <section id="products" className="bg-white py-20 md:py-28">
+        <section id="products" className="bg-white py-24 md:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-8 flex items-end justify-between border-b border-[#E2E8F0] pb-5">
+            <div className="mb-12 flex items-end justify-between border-b border-[#E2E8F0] pb-6">
               <div><p className="text-xs font-mono font-bold uppercase tracking-widest text-[#2838D8]">The product index</p><h2 className="mt-2 text-3xl font-black tracking-[-0.06em] sm:text-5xl"><DiaTextReveal as="span" text="Built for the next useful thing." /></h2></div>
               <span className="hidden font-mono text-xs text-[#64748B] sm:block">01 — {String(indexProducts.length).padStart(2, "0")}</span>
             </div>
-            <div className="divide-y divide-[#E2E8F0]">
+            <div className="space-y-5">
               {indexProducts.map((product, index) => (
-                <a key={product.slug} href={hrefFor(product.slug)} className="product-index-row group relative grid gap-5 overflow-hidden rounded-3xl border border-[#E2E8F0] bg-white px-4 py-7 transition duration-300 hover:-translate-y-1 hover:shadow-lg lg:grid-cols-12 lg:items-center lg:px-6">
+                <a key={product.slug} href={hrefFor(product.slug)} className="product-index-row group relative grid gap-6 overflow-hidden rounded-3xl border border-[#E2E8F0] bg-[#FCFDFE] px-5 py-8 transition duration-300 hover:-translate-y-1 hover:border-[#C7D2FE] hover:bg-white hover:shadow-[0_10px_28px_rgba(40,56,216,0.06)] sm:px-7 lg:grid-cols-12 lg:items-center lg:px-8">
                   <GlowingEffect disabled={false} glow spread={36} proximity={48} inactiveZone={0.2} borderWidth={4} />
                   <div className="relative flex items-baseline gap-3 lg:col-span-1"><span className="crm-reveal font-mono text-3xl font-extrabold tracking-[-0.08em] text-[#111827] transition group-hover:text-[#2838D8]" style={{ animationDelay: `${index * 60}ms` }}>{String(index + 2).padStart(2, "0")}</span><span className="crm-reveal text-[10px] font-mono uppercase text-[#64748B] lg:hidden" style={{ animationDelay: `${index * 60 + 40}ms` }}>{product.category}</span></div>
                   <div className="relative lg:col-span-3"><div className="mb-1 flex items-center gap-2"><span className="rounded bg-[#EEF0FF] px-2 py-0.5 text-[10px] font-mono font-bold uppercase text-[#7C2EDB]">{product.status}</span><span className="text-[11px] font-mono text-[#64748B]">{product.year}</span></div><h3 className="text-2xl font-black tracking-tight transition-all duration-300 group-hover:translate-x-1 group-hover:tracking-[-0.02em] group-hover:text-[#2838D8]"><DiaTextReveal as="span" text={product.title} /></h3><p className="text-xs font-mono text-[#64748B]">{product.category}</p></div>
