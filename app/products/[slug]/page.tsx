@@ -3,13 +3,14 @@ import { products } from "@/data/products";
 import { ProductDetailPage } from "@/components/product/ProductDetailPage";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function ProductPage({ params }: PageProps) {
   const { slug } = await params;
+
   const product = products.find((p) => p.slug === slug);
 
   if (!product) {
@@ -20,7 +21,5 @@ export default async function ProductPage({ params }: PageProps) {
 }
 
 export async function generateStaticParams() {
-  return products.map((product) => ({
-    slug: product.slug,
-  }));
+  return products.map((product) => ({ slug: product.slug }));
 }

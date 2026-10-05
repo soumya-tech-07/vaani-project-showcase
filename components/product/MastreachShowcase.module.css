@@ -1,0 +1,234 @@
+.page {
+  --paper: #fffdf5;
+  --ink: #1e293b;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --violet: #8b5cf6;
+  --pink: #f472b6;
+  --yellow: #fbbf24;
+  --mint: #34d399;
+  min-height: 100vh;
+  overflow-x: clip;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-mastreach-body), "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+.page h1,
+.page h2,
+.page h3,
+.page [class~="font-serif"] {
+  font-family: var(--font-mastreach-heading), Outfit, system-ui, sans-serif;
+  font-weight: 700;
+}
+
+.page .mastreach-hero-title {
+  color: #19223a;
+}
+
+.page .mastreach-handwriting {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.page .mastreach-hero-product [class~="text-[#8B5CF6]"] {
+  color: #653bd0 !important;
+}
+
+.page .mastreach-hero-product [class~="bg-[#8B5CF6]"] {
+  background-color: #653bd0 !important;
+}
+
+.page .mastreach-hero-product [class~="border-[#8B5CF6]"] {
+  border-color: #653bd0 !important;
+}
+
+.page .mastreach-hero-product [class~="bg-[#8B5CF6]/10"] {
+  background-color: rgb(101 59 208 / 10%) !important;
+}
+
+.page .mastreach-hero-product article {
+  box-shadow: 5px 5px 0 rgb(244 120 170 / 60%);
+}
+
+.page svg {
+  stroke-width: 2.25;
+}
+
+.page article {
+  border: 2px solid var(--ink);
+  border-radius: 16px 16px 16px 0;
+  box-shadow: 5px 5px 0 rgb(244 114 182 / 48%);
+  transition: transform 240ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 240ms ease;
+}
+
+.page article:hover {
+  transform: rotate(-0.5deg) translateY(-2px);
+  box-shadow: 7px 7px 0 rgb(244 114 182 / 60%);
+}
+
+.page :is(a, button, summary):focus-visible,
+.page textarea:focus-visible {
+  outline: 3px solid var(--violet);
+  outline-offset: 4px;
+}
+
+.page textarea {
+  border: 2px solid #cbd5e1;
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 transparent;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.page textarea:focus {
+  border-color: var(--violet);
+  box-shadow: 4px 4px 0 var(--violet);
+}
+
+.page > section:first-of-type::before {
+  position: absolute;
+  z-index: -1;
+  top: -8rem;
+  left: -12rem;
+  width: min(46rem, 76vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(251 191 36 / 32%), rgb(251 191 36 / 0%) 70%);
+  content: "";
+  pointer-events: none;
+}
+
+.page > section:first-of-type::after {
+  position: absolute;
+  z-index: -1;
+  top: 5%;
+  right: 2%;
+  width: min(42rem, 54vw);
+  height: 85%;
+  background-image: radial-gradient(rgb(30 41 59 / 15%) 1px, transparent 1px);
+  background-size: 14px 14px;
+  content: "";
+  mask-image: linear-gradient(135deg, #000 0%, transparent 78%);
+  pointer-events: none;
+}
+
+.page [class~="mastreach-candy"] {
+  border: 2px solid var(--ink);
+  border-radius: 9999px;
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 220ms cubic-bezier(0.34, 1.56, 0.64, 1), background-color 180ms ease;
+}
+
+.page [class~="mastreach-candy"]:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.page [class~="mastreach-candy"]:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.page [class~="mastreach-secondary"] {
+  border: 2px solid var(--ink);
+  border-radius: 9999px;
+  transition: background-color 180ms ease, transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.page [class~="mastreach-secondary"]:hover {
+  transform: translateY(-2px);
+  background: var(--yellow);
+}
+
+.page [class~="mastreach-browser"],
+.page [class~="mastreach-composer"] {
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  border-radius: 24px;
+  box-shadow: 8px 8px 0 var(--line);
+}
+
+.page [class~="mastreach-sticker"] {
+  border: 2px solid var(--ink);
+  border-radius: 16px 16px 16px 0;
+  box-shadow: 5px 5px 0 rgb(244 114 182 / 60%);
+  transition: transform 240ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 240ms ease;
+}
+
+.page [class~="mastreach-sticker"]:hover {
+  transform: rotate(-0.5deg) translateY(-2px);
+  box-shadow: 7px 7px 0 rgb(244 114 182 / 70%);
+}
+
+.page [class~="mastreach-intent"] {
+  border: 2px solid var(--ink);
+  border-radius: 9999px;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 220ms ease, background-color 180ms ease;
+}
+
+.page [class~="mastreach-intent"]:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.page [class~="mastreach-orbit"] {
+  animation: mastreach-drift 9s ease-in-out infinite;
+}
+
+@keyframes mastreach-drift {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+@keyframes mastreach-pop-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@supports (animation-timeline: view()) {
+  .page > section:not(:first-of-type) {
+    animation: mastreach-pop-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 28%;
+  }
+}
+
+@media (max-width: 640px) {
+  .page [class~="mastreach-browser"],
+  .page [class~="mastreach-composer"] {
+    border-radius: 16px;
+    box-shadow: 4px 4px 0 var(--line);
+  }
+
+  .page [class~="mastreach-sticker"] {
+    box-shadow: 3px 3px 0 rgb(244 114 182 / 60%);
+  }
+
+  .page article {
+    box-shadow: 3px 3px 0 rgb(244 114 182 / 48%);
+  }
+
+  .page article:hover {
+    transform: translateY(-1px);
+    box-shadow: 4px 4px 0 rgb(244 114 182 / 55%);
+  }
+
+  .page > section:first-of-type::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page *,
+  .page *::before,
+  .page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

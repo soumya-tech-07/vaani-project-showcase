@@ -6,7 +6,7 @@ import { GlowingEffect } from "@/components/ui/glowing-effect"
 import ArrowFillButton from "@/components/ui/arrow-fill-button"
 import { DiaTextReveal } from "@/components/ui/dia-text-reveal"
 
-const hrefFor = (slug: string) => (slug === "vaani" ? "/vaani" : `/products/${slug}`)
+const hrefFor = (slug: string) => (slug === "vaani" ? "/vaani" : slug === "lumina" ? "/products/mastreach" : `/products/${slug}`)
 
 function Preview({ product, featured = false }: { product: (typeof products)[number]; featured?: boolean }) {
   return (
