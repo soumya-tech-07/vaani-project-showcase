@@ -19,15 +19,20 @@ declare global {
 
 const openTypeUrl = "https://cdn.jsdelivr.net/npm/opentype.js@1.3.4/dist/opentype.min.js";
 const fontCache = new Map<string, Promise<OpenTypeFont>>();
-let openTypePromise: Promise<OpenType> | undefined;
+let openTypePromise: Promise<OpenType> | null = null;
 
 function loadOpenType(): Promise<OpenType> {
-  if (window.opentype) return Promise.resolve(window.opentype);
+  const loadedOpenType = (window as unknown as { opentype?: OpenType }).opentype;
+  if (loadedOpenType) return Promise.resolve(loadedOpenType);
   if (!openTypePromise) {
-    openTypePromise = new Promise((resolve, reject) => {
+    openTypePromise = new Promise<OpenType>((resolve, reject) => {
       const existing = document.querySelector<HTMLScriptElement>(`script[src="${openTypeUrl}"]`);
       const script = existing ?? document.createElement("script");
-      const onLoad = () => window.opentype ? resolve(window.opentype) : reject(new Error("opentype.js did not initialize"));
+      const onLoad = () => {
+        const opentype = (window as unknown as { opentype?: OpenType }).opentype;
+        if (opentype) resolve(opentype);
+        else reject(new Error("opentype.js did not initialize"));
+      };
       const onError = () => reject(new Error("opentype.js failed to load"));
       script.addEventListener("load", onLoad, { once: true });
       script.addEventListener("error", onError, { once: true });
@@ -37,11 +42,11 @@ function loadOpenType(): Promise<OpenType> {
         document.head.appendChild(script);
       }
     }).catch((error: unknown) => {
-      openTypePromise = undefined;
+      openTypePromise = null;
       throw error;
     });
   }
-  return openTypePromise;
+  return openTypePromise ?? Promise.reject(new Error("opentype.js failed to initialize"));
 }
 
 function loadFont(fontUrl: string): Promise<OpenTypeFont> {
