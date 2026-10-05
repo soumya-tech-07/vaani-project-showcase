@@ -28,15 +28,17 @@ export function ProductNav({ title, liveUrl }: ProductNavProps) {
         <span className="hidden text-[11px] font-medium uppercase tracking-[0.04em] text-white/90 md:block">
           Kris Anfalova <span className="ml-1 text-base leading-none">♥</span>
         </span>
-        <a
-          href={liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold text-[var(--project-text)] transition-transform hover:scale-105 sm:flex"
-        >
-          Visit {title}
-          <ArrowUpRight className="w-4 h-4" />
-        </a>
+        {liveUrl !== '#' && (
+          <a
+            href={liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold text-[var(--project-text)] transition-transform hover:scale-105 sm:flex"
+          >
+            Visit {title}
+            <ArrowUpRight className="w-4 h-4" />
+          </a>
+        )}
       </div>
     </nav>
   );

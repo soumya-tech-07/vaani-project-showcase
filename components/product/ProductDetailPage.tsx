@@ -17,6 +17,8 @@ import { ProductInboxShowcase } from "./ProductInboxShowcase";
 import { ProductLeadManagement } from "./ProductLeadManagement";
 import { ProductContactManagement } from "./ProductContactManagement";
 import { ProductCrmShowcase } from "./ProductCrmShowcase";
+import { FunnelForCoachHero } from "./FunnelForCoachHero";
+import { FunnelForCoachStory } from "./FunnelForCoachStory";
 
 interface ProductDetailPageProps {
   product: Product;
@@ -25,6 +27,15 @@ interface ProductDetailPageProps {
 export function ProductDetailPage({ product }: ProductDetailPageProps) {
   if (product.showcase === 'crm') {
     return <ProductCrmShowcase product={product} />;
+  }
+
+  if (product.slug === "funnelforcoach") {
+    return (
+      <>
+        <FunnelForCoachHero />
+        <FunnelForCoachStory />
+      </>
+    );
   }
 
   const theme = product.theme ?? {
