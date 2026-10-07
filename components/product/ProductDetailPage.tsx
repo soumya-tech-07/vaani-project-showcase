@@ -39,8 +39,8 @@ export function ProductDetailPage({ product }: ProductDetailPageProps) {
   }
 
   const theme = product.theme ?? {
-    primary: '#336C85', secondary: '#66736B', background: '#F7F9F8', text: '#17211B',
-    accent: '#128C7E', border: '#E2E8E4', highlight: '#E8F8EE', surface: '#FFFFFF',
+    primary: '#2838D8', secondary: '#475569', background: '#F8FAFC', text: '#111827',
+    accent: '#7C2EDB', border: '#E2E8F0', highlight: '#EEF0FF', surface: '#FFFFFF',
   };
   const sections = product.sections ?? ['hero', 'story', 'features', 'gallery', 'tech', 'cta'];
 

@@ -32,8 +32,9 @@ import {
 import { Product } from "@/data/products"
 import ArrowFillButton from "@/components/ui/arrow-fill-button"
 import { TextEffect } from "@/components/ui/text-effect"
-import { TextRotate } from "@/components/ui/text-rotate"
 import { TextReveal } from "@/components/ui/text-reveal-animation"
+import { HeroHandwriting, HeroReveal } from "./ProjectHeroAnimation"
+import { EditorialCTA } from "./EditorialCTA"
 
 interface ProductCrmShowcaseProps {
   product: Product
@@ -111,9 +112,9 @@ function Tag({
 }) {
   const tones = {
     green: "bg-[#EEF0FF] text-[#7C2EDB] ring-[#C7D2FE]",
-    amber: "bg-[#FFF6DE] text-[#9A6700] ring-[#F9DC91]",
+    amber: "bg-[#EEF0FF] text-[#2838D8] ring-[#C7D2FE]",
     gray: "bg-[#F8FAFC] text-[#64748B] ring-[#E2E8F0]",
-    hot: "bg-[#FDE8EA] text-[#C23B4A] ring-[#F5B7BE]",
+    hot: "bg-[#F3E8FF] text-[#7C2EDB] ring-[#D8B4FE]",
   }
   return (
     <span
@@ -156,27 +157,27 @@ function ReferenceInboxWindow() {
       />
 
       <div className="crm-reference-dashboard crm-float relative">
-        <div className="overflow-hidden rounded-[22px] border border-[#172554] bg-[#111827] shadow-[0_32px_80px_rgba(36,56,232,0.22)]">
-          <div className="flex h-10 items-center gap-2 border-b border-white/8 bg-[#111827] px-3.5">
+        <div className="overflow-hidden rounded-[22px] border border-[#E2E8F0] bg-white shadow-[0_28px_70px_rgba(17,24,39,0.12)]">
+          <div className="flex h-10 items-center gap-2 border-b border-[#E2E8F0] bg-[#F8FAFC] px-3.5">
             <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
-            <span className="ml-2 h-[18px] w-40 rounded-md bg-white/8" />
+            <span className="ml-2 h-[18px] w-40 rounded-md border border-[#E2E8F0] bg-white" />
           </div>
 
           <div className="flex min-h-[340px] sm:min-h-[392px]">
-            <aside className="hidden w-[158px] shrink-0 border-r border-white/8 bg-[#172554] p-3 md:block">
-              <div className="mb-7 flex items-center gap-2 px-1 pt-1 text-[13px] font-bold text-white">
+            <aside className="hidden w-[158px] shrink-0 border-r border-[#E2E8F0] bg-[#F8FAFC] p-3 md:block">
+              <div className="mb-7 flex items-center gap-2 px-1 pt-1 text-[13px] font-bold text-[#111827]">
                 <span className="grid h-7 w-7 place-items-center rounded-[8px] bg-[#2838D8] text-[#FFFFFF]">
                   <MessageCircle className="h-4 w-4" />
                 </span>
                 WA Inbox
               </div>
-              <div className="space-y-1 text-[11px] font-medium text-white/50">
+              <div className="space-y-1 text-[11px] font-medium text-[#64748B]">
                 <div className="flex items-center gap-2 rounded-full bg-[#2838D8] px-2.5 py-2 text-[#FFFFFF]">
                   <Inbox className="h-3.5 w-3.5" />
                   Inbox
-                  <span className="ml-auto grid h-4 min-w-4 place-items-center rounded-full bg-[#FFFFFF] px-1 text-[9px] font-bold text-white">
+                  <span className="ml-auto grid h-4 min-w-4 place-items-center rounded-full bg-white px-1 text-[9px] font-bold text-[#2438E8]">
                     12
                   </span>
                 </div>
@@ -195,24 +196,24 @@ function ReferenceInboxWindow() {
               </div>
             </aside>
 
-            <div className="w-[42%] min-w-0 shrink-0 border-r border-white/8 bg-[#111A16] text-white">
-              <div className="border-b border-white/8 p-3">
+            <div className="w-[42%] min-w-0 shrink-0 border-r border-[#E2E8F0] bg-white text-[#111827]">
+              <div className="border-b border-[#E2E8F0] p-3">
                 <div className="flex items-center justify-between">
                   <b className="text-[12px] tracking-tight">Inbox</b>
-                  <MoreHorizontal className="h-3.5 w-3.5 text-white/35" />
+                  <MoreHorizontal className="h-3.5 w-3.5 text-[#64748B]" />
                 </div>
-                <div className="mt-2.5 flex items-center gap-1.5 rounded-lg border border-white/8 bg-[#172554] px-2.5 py-1.5 text-[9px] text-white/40">
+                <div className="mt-2.5 flex items-center gap-1.5 rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] px-2.5 py-1.5 text-[9px] text-[#64748B]">
                   <Search className="h-3 w-3" />
                   Search conversations...
                 </div>
                 <div className="mt-2.5 flex gap-1.5">
-                  <span className="rounded-full bg-[#2838D8]/18 px-2 py-0.5 text-[8px] font-semibold text-[#9B2FC7]">
+                  <span className="rounded-full bg-[#EEF0FF] px-2 py-0.5 text-[8px] font-semibold text-[#7C2EDB]">
                     All 10
                   </span>
-                  <span className="rounded-full bg-white/6 px-2 py-0.5 text-[8px] font-semibold text-white/55">
+                  <span className="rounded-full bg-[#F8FAFC] px-2 py-0.5 text-[8px] font-semibold text-[#64748B]">
                     Unread 4
                   </span>
-                  <span className="rounded-full bg-white/6 px-2 py-0.5 text-[8px] font-semibold text-white/55">
+                  <span className="rounded-full bg-[#F8FAFC] px-2 py-0.5 text-[8px] font-semibold text-[#64748B]">
                     Leads 2
                   </span>
                 </div>
@@ -220,7 +221,7 @@ function ReferenceInboxWindow() {
               {referenceConversations.map((item, index) => (
                 <div
                   key={item.name}
-                  className={`border-b border-white/6 px-3 py-2.5 ${index === 0 ? "bg-[#2838D8]/12" : ""}`}
+                  className={`border-b border-[#E2E8F0] px-3 py-2.5 ${index === 0 ? "bg-[#EEF0FF]" : ""}`}
                 >
                   <div className="flex items-start gap-2">
                     <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#2838D8] text-[10px] font-bold text-[#FFFFFF]">
@@ -229,11 +230,11 @@ function ReferenceInboxWindow() {
                     <span className="min-w-0 flex-1">
                       <span className="flex items-center justify-between gap-2">
                         <b className="truncate text-[10px]">{item.name}</b>
-                        <span className="shrink-0 text-[8px] text-white/40">
+                        <span className="shrink-0 text-[8px] text-[#64748B]">
                           {item.time}
                         </span>
                       </span>
-                      <span className="mt-0.5 block truncate text-[9px] text-white/45">
+                      <span className="mt-0.5 block truncate text-[9px] text-[#64748B]">
                         {item.message}
                       </span>
                       <span
@@ -247,8 +248,8 @@ function ReferenceInboxWindow() {
               ))}
             </div>
 
-            <div className="hidden min-w-0 flex-1 flex-col bg-[#111827] text-white sm:flex">
-              <div className="flex items-center justify-between border-b border-white/8 px-3.5 py-2.5">
+            <div className="hidden min-w-0 flex-1 flex-col bg-white text-[#111827] sm:flex">
+              <div className="flex items-center justify-between border-b border-[#E2E8F0] px-3.5 py-2.5">
                 <div className="flex items-center gap-2">
                   <span className="grid h-7 w-7 place-items-center rounded-full bg-[#2838D8] text-[10px] font-bold text-[#FFFFFF]">
                     R
@@ -260,17 +261,17 @@ function ReferenceInboxWindow() {
                     <span className="text-[8px] text-[#2838D8]">Online</span>
                   </div>
                 </div>
-                <div className="flex items-center gap-2.5 text-white/45">
+                <div className="flex items-center gap-2.5 text-[#64748B]">
                   <Video className="h-3.5 w-3.5" />
                   <Phone className="h-3.5 w-3.5" />
                   <MoreHorizontal className="h-3.5 w-3.5" />
                 </div>
               </div>
-              <div className="flex flex-1 flex-col gap-3 bg-[#111827] p-3.5 text-[10px] leading-relaxed">
-                <div className="max-w-[82%] rounded-2xl rounded-tl-md bg-[#24322B] px-3 py-2 text-white/85">
+              <div className="flex flex-1 flex-col gap-3 bg-[#F8FAFC] p-3.5 text-[10px] leading-relaxed">
+                <div className="max-w-[82%] rounded-2xl rounded-tl-md border border-[#E2E8F0] bg-white px-3 py-2 text-[#475569]">
                   Hi, I&apos;m interested in your property. Can you share more
                   details?
-                  <span className="mt-1.5 block text-right text-[8px] text-white/35">
+                  <span className="mt-1.5 block text-right text-[8px] text-[#64748B]">
                     10:24 AM
                   </span>
                 </div>
@@ -289,13 +290,13 @@ function ReferenceInboxWindow() {
   )
 }
 
-function AppSidebar({ dark = false }: { dark?: boolean }) {
+function AppSidebar() {
   return (
     <aside
-      className={`hidden w-[174px] shrink-0 border-r p-3 md:block ${dark ? "border-white/10 bg-[#101714] text-white" : "border-[#E2E8F0] bg-[#F0F5F2]"}`}
+      className="hidden w-[174px] shrink-0 border-r border-[#E2E8F0] bg-[#F8FAFC] p-3 md:block"
     >
       <div
-        className={`mb-8 flex items-center gap-2 px-2 pt-1 text-sm font-bold ${dark ? "text-white" : "text-[#111827]"}`}
+        className="mb-8 flex items-center gap-2 px-2 pt-1 text-sm font-bold text-[#111827]"
       >
         <span className="grid h-7 w-7 place-items-center rounded-lg bg-[#2838D8] text-[#FFFFFF]">
           <MessageCircle className="h-4 w-4" />
@@ -303,10 +304,10 @@ function AppSidebar({ dark = false }: { dark?: boolean }) {
         WA Inbox
       </div>
       <div
-        className={`space-y-1 text-xs font-medium ${dark ? "text-white/55" : "text-[#475569]"}`}
+        className="space-y-1 text-xs font-medium text-[#475569]"
       >
         <div
-          className={`flex items-center gap-2 rounded-lg px-2.5 py-2 ${dark ? "bg-[#2838D8]/15 text-[#9B2FC7]" : "bg-[#F3F0FF] text-[#7C2EDB]"}`}
+          className="flex items-center gap-2 rounded-lg bg-[#EEF0FF] px-2.5 py-2 text-[#7C2EDB]"
         >
           <Inbox className="h-3.5 w-3.5" />
           Inbox{" "}
@@ -347,7 +348,7 @@ function PremiumButton({
     >
       <span>{children}</span>
       <span
-        className={`crm-pill-icon grid h-8 w-8 place-items-center rounded-full ${light ? "bg-[#F3F0FF]" : "bg-[#2438E8] text-white"}`}
+        className={`crm-pill-icon grid h-8 w-8 place-items-center rounded-full ${light ? "bg-[#EEF0FF]" : "bg-[#2438E8] text-white"}`}
       >
         <ArrowRight className="h-4 w-4" />
       </span>
@@ -403,7 +404,7 @@ function CrmNavbar() {
         href="/"
         className="inline-flex items-center gap-3 text-xs font-semibold text-[#475569] transition-colors hover:text-[#7C2EDB]"
       >
-        <span className="grid h-8 w-8 place-items-center rounded-lg bg-[#F3F0FF] text-[#2438E8]">
+        <span className="grid h-8 w-8 place-items-center rounded-lg bg-[#EEF0FF] text-[#2438E8]">
           <MessageCircle className="h-4 w-4" />
         </span>
         <span>
@@ -417,7 +418,7 @@ function CrmNavbar() {
       </Link>
       <div
         onMouseLeave={() => setHovered(null)}
-        className="relative hidden items-center gap-1 rounded-full border border-transparent bg-[#F0F5F2]/70 p-1 lg:flex"
+        className="relative hidden items-center gap-1 rounded-full border border-transparent bg-[#F8FAFC]/70 p-1 lg:flex"
       >
         {crmNavItems.map((item) => {
           const selected = active === item.href.slice(1)
@@ -442,7 +443,7 @@ function CrmNavbar() {
       </div>
       <a
         href="#inbox"
-        className="inline-flex items-center gap-1.5 rounded-full bg-[#111827] px-4 py-2 text-xs font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-[#2438E8]"
+        className="inline-flex items-center gap-1.5 rounded-full bg-[#2438E8] px-4 py-2 text-xs font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-[#2838D8]"
       >
         Explore product <ArrowRight className="h-3.5 w-3.5" />
       </a>
@@ -458,10 +459,10 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
   const contact = contacts[selectedContact]
 
   return (
-    <main className="crm-page min-h-screen overflow-x-hidden bg-[#F8FAFC] text-[#111827] selection:bg-[#2838D8]/35">
+    <main className="rian-editorial-theme crm-page min-h-screen overflow-x-hidden bg-[#F8FAFC] text-[#111827] selection:bg-[#2838D8]/35">
       <CrmNavbar />
 
-      <section className="crm-reference-hero relative px-5 pt-16 pb-10 sm:px-8 lg:pt-20 lg:pb-12">
+      <section className="crm-reference-hero rian-paper-wash relative px-5 pt-16 pb-10 sm:px-8 lg:pt-20 lg:pb-12">
         <div
           className="crm-reference-glow crm-reference-glow-left"
           aria-hidden="true"
@@ -473,7 +474,7 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
         <div className="relative mx-auto max-w-[1340px]">
           <div className="grid items-center gap-9 lg:grid-cols-[0.7fr_1.3fr] lg:gap-12">
             <div className="crm-reveal max-w-[430px]">
-              <p className="mb-5 inline-flex rounded-full bg-[#F3F0FF] px-3 py-1.5 text-[9px] font-bold tracking-[0.15em] text-[#7C2EDB] uppercase">
+              <p className="mb-5 inline-flex rounded-full bg-[#EEF0FF] px-3 py-1.5 text-[9px] font-bold tracking-[0.15em] text-[#7C2EDB] uppercase">
                 WhatsApp CRM / Customer Communication
               </p>
               <h1 className="text-[3.65rem] leading-[0.88] font-bold tracking-[-0.075em] text-[#111827] sm:text-[4.5rem] lg:text-[4.8rem]">
@@ -503,17 +504,14 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
                 >
                   Turn conversations into
                 </TextEffect>
-                <TextRotate
-                  texts={[
-                    "actionable lead follow-up.",
-                    "organized customer workflows.",
-                    "visible customer context.",
+                <HeroHandwriting
+                  words={[
+                    "Actionable lead follow-up.",
+                    "Organized customer workflows.",
+                    "Visible customer context.",
                   ]}
-                  rotationInterval={2800}
-                  splitBy="words"
-                  staggerDuration={0.025}
-                  mainClassName="mt-1 block text-[#7C2EDB]"
-                  elementLevelClassName="will-change-transform"
+                  height={46}
+                  className="mt-1 block h-[2.875rem] w-full max-w-[420px]"
                 />
               </div>
               <TextEffect
@@ -533,8 +531,8 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
                   bgColor="#2438E8"
                   textColor="#FFFFFF"
                   fillBgColor="#2838D8"
-                  fillTextColor="#2438E8"
-                  hoverFillBgColor="#F3F0FF"
+                  fillTextColor="#FFFFFF"
+                  hoverFillBgColor="#EEF0FF"
                   hoverFillTextColor="#2438E8"
                   className="min-w-[9.5rem] shadow-[0_10px_22px_rgba(40,56,216,0.18)]"
                 />
@@ -572,11 +570,13 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
                 </div>
               </div>
             </div>
-            <ReferenceInboxWindow />
+            <HeroReveal delay={0.12} y={20}>
+              <ReferenceInboxWindow />
+            </HeroReveal>
           </div>
           <div className="crm-reference-footer mt-7 flex items-end justify-end gap-6">
             <div className="hidden items-center gap-3 rounded-full border border-[#E2E8F0] bg-white px-4 py-2 text-[9px] text-[#475569] shadow-sm sm:flex">
-              <span className="grid h-7 w-7 place-items-center rounded-full bg-[#F3F0FF] text-[#7C2EDB]">
+              <span className="grid h-7 w-7 place-items-center rounded-full bg-[#EEF0FF] text-[#7C2EDB]">
                 <MessageCircle className="h-4 w-4" />
               </span>
               <b className="text-[#111827]">
@@ -645,7 +645,7 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
               workspace.
             </p>
           </div>
-          <div className="overflow-hidden rounded-2xl border border-[#D8E4DC] bg-white shadow-sm">
+          <div className="overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white shadow-sm">
             <div className="flex min-h-[530px]">
               <AppSidebar />
               <div className="w-full border-r border-[#E2E8F0] md:w-[34%]">
@@ -826,7 +826,7 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
               in view next to customer conversations.
             </p>
           </div>
-          <div className="overflow-hidden rounded-2xl border border-[#D8E4DC] bg-white shadow-sm">
+          <div className="overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white shadow-sm">
             <div className="grid md:grid-cols-[1fr_1.1fr]">
               <div className="border-b border-[#E2E8F0] md:border-r md:border-b-0">
                 <div className="flex items-center justify-between border-b border-[#E2E8F0] p-4">
@@ -978,10 +978,10 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
             ].map(([number, title, description], index) => (
               <div
                 key={title}
-                className={`min-h-56 rounded-2xl border border-[#E2E8F0] p-6 ${index === 0 ? "bg-[#111827] text-white" : "bg-white"}`}
+                className={`min-h-56 rounded-2xl border border-[#E2E8F0] p-6 ${index === 0 ? "bg-[#EEF0FF]" : "bg-white"}`}
               >
                 <p
-                  className={`font-mono text-xs ${index === 0 ? "text-[#9B2FC7]" : "text-[#7C2EDB]"}`}
+                  className="font-mono text-xs text-[#7C2EDB]"
                 >
                   {number}
                 </p>
@@ -994,7 +994,7 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
                       showReplay={false}
                     />
                     <p
-                      className={`mt-2 max-w-xs text-sm ${index === 0 ? "text-white/60" : "text-[#64748B]"}`}
+                      className="mt-2 max-w-xs text-sm text-[#64748B]"
                     >
                       {description}
                     </p>
@@ -1072,20 +1072,20 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
           <div className="workspace-inbox-panel mt-14 grid gap-10 rounded-[28px] p-6 sm:p-8 lg:grid-cols-[0.7fr_1.3fr] lg:p-10">
             <div className="flex flex-col justify-between">
               <div>
-                <p className="font-mono text-xs font-semibold tracking-[0.16em] text-[#9B2FC7]">
+                <p className="font-mono text-xs font-semibold tracking-[0.16em] text-[#7C2EDB]">
                   01
                 </p>
                 <TextReveal
                   as="h3"
                   word="Inbox"
-                  className="mt-5 text-3xl font-bold tracking-[-0.045em] text-white"
+                  className="mt-5 text-3xl font-bold tracking-[-0.045em] text-[#111827]"
                   showReplay={false}
                 />
-                <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/60">
+                <p className="mt-3 max-w-xs text-sm leading-relaxed text-[#475569]">
                   Shared conversations and visible lead state.
                 </p>
               </div>
-              <div className="mt-12 space-y-5 text-xs text-white/70">
+              <div className="mt-12 space-y-5 text-xs text-[#475569]">
                 {[
                   [MessageCircle, "All conversations", "In one place"],
                   [Tags, "With lead tags", "Stay organized"],
@@ -1097,11 +1097,11 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
                       key={title as string}
                       className="flex items-center gap-3"
                     >
-                      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#2838D8]/15 text-[#9B2FC7]">
+                      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#EEF0FF] text-[#7C2EDB]">
                         <FeatureIcon className="h-4 w-4" />
                       </span>
                       <span>
-                        <b className="block text-white">{title as string}</b>
+                        <b className="block text-[#111827]">{title as string}</b>
                         <span>{detail as string}</span>
                       </span>
                     </div>
@@ -1109,19 +1109,19 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
                 })}
               </div>
             </div>
-            <div className="workspace-product-preview overflow-hidden rounded-2xl border border-white/10 bg-[#111827] shadow-2xl">
-              <div className="flex items-center gap-2 border-b border-white/10 bg-[#16251D] px-4 py-3">
+            <div className="workspace-product-preview overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white shadow-xl">
+              <div className="flex items-center gap-2 border-b border-[#E2E8F0] bg-[#F8FAFC] px-4 py-3">
                 <span className="h-2 w-2 rounded-full bg-[#2838D8]" />
-                <b className="text-[10px] text-white/80">WA Inbox</b>
-                <div className="ml-auto flex items-center gap-2 rounded-md bg-white/5 px-3 py-1.5 text-[9px] text-white/40">
+                <b className="text-[10px] text-[#111827]">WA Inbox</b>
+                <div className="ml-auto flex items-center gap-2 rounded-md border border-[#E2E8F0] bg-white px-3 py-1.5 text-[9px] text-[#64748B]">
                   <Search className="h-3 w-3" /> Search conversations
                 </div>
               </div>
               <div className="grid min-h-[330px] md:grid-cols-[0.82fr_1.18fr]">
-                <div className="border-b border-white/10 md:border-r md:border-b-0">
-                  <div className="border-b border-white/10 px-4 py-3 text-[10px] font-bold text-white">
+                <div className="border-b border-[#E2E8F0] md:border-r md:border-b-0">
+                  <div className="border-b border-[#E2E8F0] px-4 py-3 text-[10px] font-bold text-[#111827]">
                     Inbox{" "}
-                    <span className="ml-1 font-normal text-white/35">
+                    <span className="ml-1 font-normal text-[#64748B]">
                       3 unread
                     </span>
                   </div>
@@ -1129,21 +1129,21 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
                     <button
                       key={item.name}
                       onClick={() => setSelectedConversation(index)}
-                      className={`flex w-full items-start gap-2 border-b border-white/8 px-4 py-3 text-left transition-colors hover:bg-white/5 ${selectedConversation === index ? "bg-[#2838D8]/10" : ""}`}
+                      className={`flex w-full items-start gap-2 border-b border-[#E2E8F0] px-4 py-3 text-left transition-colors hover:bg-[#F8FAFC] ${selectedConversation === index ? "bg-[#EEF0FF]" : ""}`}
                     >
-                      <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#F3F0FF] text-[9px] font-bold text-[#2438E8]">
+                      <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#EEF0FF] text-[9px] font-bold text-[#2438E8]">
                         {item.name.slice(-1)}
                       </span>
                       <span className="min-w-0 flex-1">
                         <span className="flex items-center justify-between gap-2">
-                          <b className="truncate text-[10px] text-white">
+                          <b className="truncate text-[10px] text-[#111827]">
                             {item.name}
                           </b>
-                          <span className="text-[8px] text-white/35">
+                          <span className="text-[8px] text-[#64748B]">
                             {item.time}
                           </span>
                         </span>
-                        <span className="mt-1 block truncate text-[9px] text-white/45">
+                        <span className="mt-1 block truncate text-[9px] text-[#64748B]">
                           {item.message}
                         </span>
                         <Tag tone={index === 0 ? "amber" : "green"}>
@@ -1154,16 +1154,16 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
                   ))}
                 </div>
                 <div className="hidden min-w-0 flex-col md:flex">
-                  <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
+                  <div className="flex items-center justify-between border-b border-[#E2E8F0] px-4 py-3">
                     <div className="flex items-center gap-2">
-                      <span className="grid h-7 w-7 place-items-center rounded-full bg-[#2838D8]/15 text-[#9B2FC7]">
+                      <span className="grid h-7 w-7 place-items-center rounded-full bg-[#EEF0FF] text-[#7C2EDB]">
                         <CircleUserRound className="h-4 w-4" />
                       </span>
                       <span>
-                        <b className="block text-[10px] text-white">
+                        <b className="block text-[10px] text-[#111827]">
                           {active.name}
                         </b>
-                        <span className="text-[8px] text-white/40">
+                        <span className="text-[8px] text-[#64748B]">
                           Customer conversation
                         </span>
                       </span>
@@ -1171,19 +1171,19 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
                     <Tag tone="amber">{active.tag}</Tag>
                   </div>
                   <div className="flex-1 space-y-3 p-4 text-[10px]">
-                    <p className="max-w-[75%] rounded-xl rounded-tl-sm bg-[#24352B] p-2.5 text-white/80">
+                    <p className="max-w-[75%] rounded-xl rounded-tl-sm border border-[#E2E8F0] bg-white p-2.5 text-[#475569]">
                       Hello, I&apos;d like to know more about your service.
                     </p>
-                    <p className="ml-auto max-w-[75%] rounded-xl rounded-tr-sm bg-[#2838D8] p-2.5 text-[#2438E8]">
+                    <p className="ml-auto max-w-[75%] rounded-xl rounded-tr-sm bg-[#2438E8] p-2.5 text-white">
                       Thanks for reaching out. What would you like to explore?
                     </p>
-                    <p className="max-w-[75%] rounded-xl rounded-tl-sm bg-[#24352B] p-2.5 text-white/80">
+                    <p className="max-w-[75%] rounded-xl rounded-tl-sm border border-[#E2E8F0] bg-white p-2.5 text-[#475569]">
                       {active.message}
                     </p>
                   </div>
-                  <div className="m-3 flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-[9px] text-white/35">
+                  <div className="m-3 flex items-center gap-2 rounded-lg border border-[#E2E8F0] px-3 py-2 text-[9px] text-[#64748B]">
                     Write a reply{" "}
-                    <span className="ml-auto flex items-center gap-2 text-[#9B2FC7]">
+                    <span className="ml-auto flex items-center gap-2 text-[#7C2EDB]">
                       <span>Attach</span>
                       <Send className="h-3.5 w-3.5" />
                     </span>
@@ -1216,7 +1216,7 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
                 <p className="w-fit rounded-lg bg-white px-3 py-2 text-[#475569] shadow-sm">
                   Could you share more details?
                 </p>
-                <p className="ml-auto w-fit rounded-lg bg-[#F3F0FF] px-3 py-2 text-[#2438E8]">
+                <p className="ml-auto w-fit rounded-lg bg-[#EEF0FF] px-3 py-2 text-[#2438E8]">
                   Absolutely - here&apos;s what happens next.
                 </p>
               </div>
@@ -1245,7 +1245,7 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
                 <UsersRound className="h-6 w-6 text-[#7C2EDB]" />
               </div>
               <div className="mt-7 flex items-center gap-3 rounded-xl bg-[#F8FAFC] p-4">
-                <span className="grid h-10 w-10 place-items-center rounded-full bg-[#F3F0FF] text-[#7C2EDB]">
+                <span className="grid h-10 w-10 place-items-center rounded-full bg-[#EEF0FF] text-[#7C2EDB]">
                   <CircleUserRound className="h-5 w-5" />
                 </span>
                 <span>
@@ -1264,7 +1264,7 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
             </div>
           </div>
 
-          <div className="workspace-workflow-card mt-5 rounded-[22px] border border-[#E2E8F0] bg-[#F9FCFA] p-6 sm:p-8">
+          <div className="workspace-workflow-card mt-5 rounded-[22px] border border-[#E2E8F0] bg-[#F8FAFC] p-6 sm:p-8">
             <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
               <div>
                 <p className="font-mono text-xs font-semibold text-[#7C2EDB]">
@@ -1333,37 +1333,17 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
           </div>
         </div>
       </section>
-      <section className="px-5 py-20 sm:px-8">
-        <div className="mx-auto max-w-[1180px] rounded-3xl bg-[#7C2EDB] px-7 py-14 text-center text-white sm:px-12">
-          <p className="text-[11px] font-bold tracking-[0.16em] text-[#EEF0FF] uppercase">
-            WhatsApp Business Inbox
-          </p>
-          <TextReveal
-            as="h2"
-            word="Explore the workspace."
-            className="mt-4 text-4xl font-bold tracking-[-0.06em] sm:text-5xl"
-            showReplay={false}
-          />
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/75">
-            See how conversations, contacts and lead workflows come together in
-            one place.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a
-              href="#inbox"
-              className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-[#7C2EDB]"
-            >
-              View workspace <ArrowUpRight className="h-4 w-4" />
-            </a>
-            <Link
-              href="/"
-              className="rounded-xl border border-white/30 px-5 py-3 text-sm font-semibold transition-colors hover:bg-white/10"
-            >
-              Back to Projects
-            </Link>
-          </div>
-        </div>
-      </section>
+      <EditorialCTA
+        eyebrow="Next step / WhatsApp Business Inbox"
+        title="Explore the workspace."
+        description="See how conversations, contacts and lead workflows come together in one place."
+        primaryLabel="View workspace"
+        primaryHref="#inbox"
+        secondaryLabel="Back to Projects"
+        secondaryHref="/"
+        caption="Conversations. Context. Confident follow-up."
+        wordmark="WA INBOX"
+      />
     </main>
   )
 }

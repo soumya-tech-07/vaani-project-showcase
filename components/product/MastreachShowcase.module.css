@@ -1,12 +1,12 @@
 .page {
-  --paper: #fffdf5;
-  --ink: #1e293b;
-  --muted: #64748b;
-  --line: #e2e8f0;
-  --violet: #8b5cf6;
-  --pink: #f472b6;
-  --yellow: #fbbf24;
-  --mint: #34d399;
+  --paper: #FFFFFF;
+  --ink: #111827;
+  --muted: #475569;
+  --line: #E2E8F0;
+  --violet: #2838D8;
+  --pink: #7C2EDB;
+  --yellow: #EEF0FF;
+  --mint: #2438E8;
   min-height: 100vh;
   overflow-x: clip;
   background: var(--paper);
@@ -34,24 +34,24 @@
   overflow: visible;
 }
 
-.page .mastreach-hero-product [class~="text-[#8B5CF6]"] {
-  color: #653bd0 !important;
+.page .mastreach-hero-product [class~="text-[#2838D8]"] {
+  color: #2438E8 !important;
 }
 
-.page .mastreach-hero-product [class~="bg-[#8B5CF6]"] {
-  background-color: #653bd0 !important;
+.page .mastreach-hero-product [class~="bg-[#2838D8]"] {
+  background-color: #2438E8 !important;
 }
 
-.page .mastreach-hero-product [class~="border-[#8B5CF6]"] {
-  border-color: #653bd0 !important;
+.page .mastreach-hero-product [class~="border-[#2838D8]"] {
+  border-color: #2438E8 !important;
 }
 
-.page .mastreach-hero-product [class~="bg-[#8B5CF6]/10"] {
+.page .mastreach-hero-product [class~="bg-[#2838D8]/10"] {
   background-color: rgb(101 59 208 / 10%) !important;
 }
 
 .page .mastreach-hero-product article {
-  box-shadow: 5px 5px 0 rgb(244 120 170 / 60%);
+  box-shadow: 5px 5px 0 rgb(124 46 219 / 18%);
 }
 
 .page svg {
@@ -61,13 +61,13 @@
 .page article {
   border: 2px solid var(--ink);
   border-radius: 16px 16px 16px 0;
-  box-shadow: 5px 5px 0 rgb(244 114 182 / 48%);
+  box-shadow: 5px 5px 0 rgb(124 46 219 / 18%);
   transition: transform 240ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 240ms ease;
 }
 
 .page article:hover {
   transform: rotate(-0.5deg) translateY(-2px);
-  box-shadow: 7px 7px 0 rgb(244 114 182 / 60%);
+  box-shadow: 7px 7px 0 rgb(124 46 219 / 15%);
 }
 
 .page :is(a, button, summary):focus-visible,
@@ -96,7 +96,7 @@
   width: min(46rem, 76vw);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle, rgb(251 191 36 / 32%), rgb(251 191 36 / 0%) 70%);
+  background: radial-gradient(circle, rgb(40 56 216 / 18%), rgb(124 46 219 / 0%) 70%);
   content: "";
   pointer-events: none;
 }
@@ -108,7 +108,7 @@
   right: 2%;
   width: min(42rem, 54vw);
   height: 85%;
-  background-image: radial-gradient(rgb(30 41 59 / 15%) 1px, transparent 1px);
+  background-image: radial-gradient(rgb(148 163 184 / 18%) 1px, transparent 1px);
   background-size: 14px 14px;
   content: "";
   mask-image: linear-gradient(135deg, #000 0%, transparent 78%);
@@ -154,13 +154,13 @@
 .page [class~="mastreach-sticker"] {
   border: 2px solid var(--ink);
   border-radius: 16px 16px 16px 0;
-  box-shadow: 5px 5px 0 rgb(244 114 182 / 60%);
+  box-shadow: 5px 5px 0 rgb(124 46 219 / 15%);
   transition: transform 240ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 240ms ease;
 }
 
 .page [class~="mastreach-sticker"]:hover {
   transform: rotate(-0.5deg) translateY(-2px);
-  box-shadow: 7px 7px 0 rgb(244 114 182 / 70%);
+  box-shadow: 7px 7px 0 rgb(124 46 219 / 18%);
 }
 
 .page [class~="mastreach-intent"] {
@@ -205,16 +205,16 @@
   }
 
   .page [class~="mastreach-sticker"] {
-    box-shadow: 3px 3px 0 rgb(244 114 182 / 60%);
+    box-shadow: 3px 3px 0 rgb(124 46 219 / 15%);
   }
 
   .page article {
-    box-shadow: 3px 3px 0 rgb(244 114 182 / 48%);
+    box-shadow: 3px 3px 0 rgb(124 46 219 / 18%);
   }
 
   .page article:hover {
     transform: translateY(-1px);
-    box-shadow: 4px 4px 0 rgb(244 114 182 / 55%);
+    box-shadow: 4px 4px 0 rgb(124 46 219 / 18%);
   }
 
   .page > section:first-of-type::after {

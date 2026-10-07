@@ -165,7 +165,7 @@ export function MobileNavToggle({ isOpen, onClick }: { isOpen: boolean; onClick:
 export function NavbarLogo() {
   return (
     <Link href="#" className="relative z-20 flex items-center gap-3 px-2 py-1">
-      <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#b8ff00]/40 bg-[#edf7d0] text-sm font-semibold tracking-[0.2em] text-[#0d0d0d]">V</span>
+      <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#2438E8]/40 bg-[#EEF0FF] text-sm font-semibold tracking-[0.2em] text-[#111827]">V</span>
       <span>
         <span className="block text-lg font-semibold tracking-[0.22em] text-[#111111]">VAANI</span>
         <span className="block text-[9px] uppercase tracking-[0.2em] text-[#5d5d5d]">by Rian Infotech</span>
@@ -175,7 +175,7 @@ export function NavbarLogo() {
 }
 
 export function NavbarButton({ href, children, className, onClick }: { href: string; children: React.ReactNode; className?: string; onClick?: () => void }) {
-  return <Link href={href} onClick={onClick} className={cn("relative z-20 inline-flex items-center justify-center rounded-lg bg-[#b8ff00] px-4 py-2 text-sm font-medium text-[#080808] shadow-[0_0_24px_rgba(184,255,0,0.18)] transition-transform hover:-translate-y-0.5", className)}>{children}</Link>;
+  return <Link href={href} onClick={onClick} className={cn("relative z-20 inline-flex items-center justify-center rounded-lg bg-[#2438E8] px-4 py-2 text-sm font-medium text-white shadow-[0_0_24px_rgba(40,56,216,0.18)] transition-transform hover:-translate-y-0.5", className)}>{children}</Link>;
 }
 
 export function DesktopNavToggle({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) {

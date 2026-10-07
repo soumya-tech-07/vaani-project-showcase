@@ -12,8 +12,8 @@ export function ProductGallery({ product }: ProductGalleryProps) {
     <section className="py-32 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16 text-center">
-          <h2 className="text-[#2B3128] text-4xl font-bold tracking-tight mb-4">Visual Showcase</h2>
-          <p className="text-[#92968F] text-lg max-w-2xl mx-auto">
+          <h2 className="text-[#111827] text-4xl font-bold tracking-tight mb-4">Visual Showcase</h2>
+          <p className="text-[#475569] text-lg max-w-2xl mx-auto">
             A closer look at the interface and user experience of {product.title}.
           </p>
         </div>
@@ -22,7 +22,7 @@ export function ProductGallery({ product }: ProductGalleryProps) {
           {product.screenshots.map((src, index) => (
             <div
               key={index}
-              className={`relative group overflow-hidden rounded-3xl border border-[#e0e3e2] bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1 ${
+              className={`relative group overflow-hidden rounded-3xl border border-[#E2E8F0] bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1 ${
                 index === 0 ? "md:col-span-2 md:row-span-2 aspect-auto" : "aspect-square"
               }`}
             >

@@ -21,14 +21,14 @@ export function ProductPreview({ product }: ProductPreviewProps) {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
-            <div className="w-2 h-8 bg-[#336C85] rounded-full" />
-            <h2 className="text-3xl font-bold text-[#2B3128]">Live Interaction</h2>
+            <div className="w-2 h-8 bg-[#2438E8] rounded-full" />
+            <h2 className="text-3xl font-bold text-[#111827]">Live Interaction</h2>
           </div>
-          <span className="text-[#92968F] text-sm font-mono uppercase tracking-widest">Real-time Preview</span>
+          <span className="text-[#475569] text-sm font-mono uppercase tracking-widest">Real-time Preview</span>
         </div>
 
-        <div className="relative rounded-3xl border border-[#e0e3e2] bg-white shadow-2xl overflow-hidden group">
-          <div className="aspect-video w-full relative bg-[#f8fafb]">
+        <div className="relative rounded-3xl border border-[#E2E8F0] bg-white shadow-2xl overflow-hidden group">
+          <div className="aspect-video w-full relative bg-[#F8FAFC]">
             <iframe
               src={product.liveUrl}
               className="w-full h-full border-none opacity-90 group-hover:opacity-100 transition-opacity duration-500"
@@ -40,19 +40,19 @@ export function ProductPreview({ product }: ProductPreviewProps) {
             {/* Fallback overlay if iframe fails or as a guide */}
             {iframeError && (
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-white text-center p-6">
-                <p className="text-[#2B3128] font-medium mb-4">Live preview is unavailable for this product.</p>
+                <p className="text-[#111827] font-medium mb-4">Live preview is unavailable for this product.</p>
                 <a
                   href={product.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#336C85] text-white px-6 py-3 rounded-full text-sm font-medium hover:scale-105 transition-all"
+                  className="bg-[#2438E8] text-white px-6 py-3 rounded-full text-sm font-medium hover:scale-105 transition-all"
                 >
                   Visit Official Site ↗
                 </a>
               </div>
             )}
 
-            <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-[#f8fafb]/20" />
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-[#F8FAFC]/20" />
           </div>
 
           <div className="absolute bottom-6 right-6">
@@ -60,7 +60,7 @@ export function ProductPreview({ product }: ProductPreviewProps) {
               href={product.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white/80 backdrop-blur-md border border-[#e0e3e2] text-[#2B3128] px-4 py-2 rounded-full text-xs font-medium hover:bg-white transition-all"
+              className="bg-white/80 backdrop-blur-md border border-[#E2E8F0] text-[#111827] px-4 py-2 rounded-full text-xs font-medium hover:bg-white transition-all"
             >
               Open in New Tab ↗
             </a>

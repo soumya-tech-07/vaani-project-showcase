@@ -8,6 +8,13 @@ import {
   useSpring,
 } from "framer-motion";
 import HeroBackground from "@/components/ui/hero-17-utils/HeroBackground";
+import { HeroHandwriting, HeroReveal } from "@/components/product/ProjectHeroAnimation";
+
+const heroPhrases = [
+  "A page that works.",
+  "Ready to publish.",
+  "Made for coaches.",
+];
 
 export default function Hero17() {
   const heroRef = useRef<HTMLElement>(null);
@@ -32,7 +39,7 @@ export default function Hero17() {
       aria-labelledby="ffc-title"
       onMouseMove={handleMouseMove}
       onMouseLeave={() => cursorOpacity.set(0)}
-      className="relative isolate w-full overflow-hidden border-y-4 border-black py-16 text-center sm:py-20 lg:py-24"
+      className="relative isolate w-full overflow-hidden py-8 text-left sm:py-10 lg:py-12"
     >
       <HeroBackground />
       {!reduceMotion && (
@@ -42,23 +49,40 @@ export default function Hero17() {
           style={{ x: smoothCursorX, y: smoothCursorY, opacity: cursorOpacity }}
         />
       )}
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-8">
-        <p className="mb-8 font-mono text-xs font-medium uppercase tracking-[0.2em] text-[#525252]">
+      <HeroReveal className="relative z-10 w-full">
+        <p className="mb-6 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-[#525252] sm:text-xs">
           FunnelForCoach / AI for coaching professionals
         </p>
         <h1
           id="ffc-title"
-          className="mx-auto max-w-6xl text-balance font-serif text-[clamp(3.5rem,9vw,9rem)] leading-[0.91] tracking-[-0.055em] text-black"
+          className="max-w-3xl text-balance font-serif text-[clamp(2.7rem,5.5vw,5.8rem)] leading-[0.94] tracking-[-0.055em] text-black"
         >
           Your coaching idea.
-          <br />
-          <span className="italic">A page that works.</span>
+          <HeroHandwriting
+            words={heroPhrases}
+            height={72}
+            className="mt-2 h-[4.5rem] w-full max-w-[520px]"
+          />
         </h1>
-        <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-[#525252] sm:text-xl">
+        <p className="mt-6 max-w-xl text-base leading-relaxed text-[#525252] sm:text-lg">
           Tell us what you help people do. We&apos;ll create your starting
           point, ready for your voice, your domain, and your next client.
         </p>
-      </div>
+        <div className="mt-7 flex flex-wrap gap-3">
+          <a
+            href="#ffc-cta"
+            className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full border-2 border-[#2838D8] bg-[#2838D8] px-6 py-3 text-xs font-semibold text-white transition-colors hover:border-[#7C2EDB] hover:bg-[#7C2EDB] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#2838D8]"
+          >
+            CREATE YOUR LANDING PAGE <span aria-hidden="true">→</span>
+          </a>
+          <a
+            href="#ffc-workflow"
+            className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full border-2 border-[#2838D8] bg-white px-6 py-3 text-xs font-semibold text-[#2838D8] transition-colors hover:bg-[#EEF0FF] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#2838D8]"
+          >
+            SEE HOW IT WORKS
+          </a>
+        </div>
+      </HeroReveal>
     </section>
   );
 }

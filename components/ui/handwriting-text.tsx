@@ -97,7 +97,7 @@ export function HandwritingText({
   duration = 1.7,
   delay = 0.05,
   strokeWidth = 1.35,
-  fill = "#2199ED",
+  fill = "#2438E8",
   height = 108,
   className,
 }: HandwritingTextProps) {

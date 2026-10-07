@@ -2,6 +2,7 @@
 
 import { useState, type ReactNode } from "react";
 import { ArrowDown, ArrowRight, Check, Globe2, Sparkles } from "lucide-react";
+import { EditorialCTA } from "./EditorialCTA";
 
 const practices = [
   { name: "Leadership", audience: "For first-time managers", headline: "Become a better leader.", copy: "Build trust, guide your team, and grow into your role with practical leadership coaching." },
@@ -57,7 +58,7 @@ export function FunnelForCoachStory() {
   const practice = practices[activePractice];
 
   return (
-    <div className="ffc-story bg-white text-[#111827]">
+    <div className="rian-editorial-theme rian-funnel ffc-story bg-white text-[#111827]">
       <section id="ffc-experience" className="scroll-mt-8 px-5 py-24 sm:px-8 sm:py-32 lg:px-12 lg:py-40">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-end lg:gap-20">
@@ -92,7 +93,33 @@ export function FunnelForCoachStory() {
       </section>
 
       <section className="px-5 py-24 sm:px-8 sm:py-32 lg:px-12 lg:py-36">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20"><div><Eyebrow>03 / Who it’s for</Eyebrow><h2 className="mt-5 font-serif text-5xl leading-[0.98] tracking-[-0.045em] sm:text-6xl">Different coaching practices. One simpler way to get online.</h2><p className="mt-6 text-base leading-7 text-[#475569]">Explore example coaching contexts. Each preview is illustrative.</p><div className="mt-8 flex flex-wrap gap-2" role="group" aria-label="Choose a coaching context">{practices.map((item, index) => <button key={item.name} type="button" aria-pressed={activePractice === index} onClick={() => setActivePractice(index)} className={`border px-3 py-2 font-mono text-[9px] uppercase tracking-[0.11em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2838D8] ${activePractice === index ? "border-[#2838D8] bg-[#2838D8] text-white" : "border-[#E2E8F0] text-[#475569] hover:border-[#2838D8] hover:text-[#2838D8]"}`}>{item.name}</button>)}</div></div><div aria-live="polite"><PageMock practice={practice} /></div></div>
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-12 xl:gap-14">
+          <div className="max-w-2xl">
+            <Eyebrow>03 / Who it’s for</Eyebrow>
+            <h2 className="mt-5 max-w-[18ch] font-serif text-5xl leading-[0.98] tracking-[-0.045em] sm:text-6xl">
+              Different coaching practices. One simpler way to get online.
+            </h2>
+            <p className="mt-6 max-w-lg text-base leading-7 text-[#475569]">
+              Explore example coaching contexts. Each preview is illustrative.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-2" role="group" aria-label="Choose a coaching context">
+              {practices.map((item, index) => (
+                <button
+                  key={item.name}
+                  type="button"
+                  aria-pressed={activePractice === index}
+                  onClick={() => setActivePractice(index)}
+                  className={`border px-3 py-2 font-mono text-[9px] uppercase tracking-[0.11em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2838D8] ${activePractice === index ? "border-[#2838D8] bg-[#2838D8] text-white" : "border-[#E2E8F0] text-[#475569] hover:border-[#2838D8] hover:text-[#2838D8]"}`}
+                >
+                  {item.name}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div aria-live="polite">
+            <PageMock practice={practice} />
+          </div>
+        </div>
       </section>
 
       <section className="px-5 py-24 sm:px-8 sm:py-32 lg:px-12 lg:py-40">
@@ -143,20 +170,18 @@ export function FunnelForCoachStory() {
 
       <section className="px-5 py-24 sm:px-8 sm:py-32 lg:px-12 lg:py-36"><div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-24"><div><Eyebrow>09 / Frequently asked</Eyebrow><h2 className="mt-5 font-serif text-5xl leading-[0.98] tracking-[-0.045em] sm:text-6xl">A few useful answers.</h2><p className="mt-6 text-base leading-7 text-[#475569]">A clearer picture of how the product works.</p></div><div className="border-t border-[#CBD5E1]">{faqs.map(([question, answer]) => <details key={question} className="group border-b border-[#CBD5E1] py-5"><summary className="flex cursor-pointer list-none items-center justify-between gap-5 font-serif text-xl marker:hidden sm:text-2xl"><span>{question}</span><span aria-hidden="true" className="font-sans text-2xl font-light text-[#2838D8] transition-transform group-open:rotate-45">+</span></summary><p className="max-w-2xl pt-4 text-sm leading-6 text-[#475569]">{answer}</p></details>)}</div></div></section>
 
-      <section id="ffc-cta" className="relative isolate scroll-mt-8 overflow-hidden bg-[#111827] px-5 py-24 text-white sm:px-8 sm:py-32 lg:px-12 lg:py-40">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_18%_100%,rgba(40,56,216,0.5),transparent_48%),radial-gradient(ellipse_at_88%_0%,rgba(124,46,219,0.42),transparent_42%)]" />
-        <div aria-hidden="true" className="pointer-events-none absolute -bottom-8 left-1/2 -z-10 -translate-x-1/2 select-none whitespace-nowrap font-serif text-[18vw] leading-none tracking-[-0.08em] text-white/[0.035]">FUNNELFORCOACH</div>
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 border-t border-white/20 pt-8 lg:grid-cols-[1fr_0.65fr] lg:gap-20 lg:pt-12">
-            <div><Eyebrow light>10 / Take the next step</Eyebrow><h2 className="mt-7 max-w-5xl font-serif text-6xl leading-[0.92] tracking-[-0.05em] sm:text-7xl lg:text-[7.5rem]">Your next client could start here.</h2><p className="mt-7 max-w-xl text-lg leading-8 text-white/70 sm:text-xl">Tell FunnelForCoach what you do. Turn your coaching idea into a page worth sharing.</p></div>
-            <div className="flex flex-col justify-end gap-5 lg:pb-2">
-              <a href="https://www.funnelforcoach.com/" className="group inline-flex min-h-16 items-center justify-between gap-6 bg-white px-6 text-sm font-semibold uppercase tracking-[0.1em] text-[#2838D8] transition-colors hover:bg-[#EEF0FF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:px-8">Create your landing page <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" /></a>
-              <a href="#ffc-live-site" className="inline-flex items-center gap-2 self-start text-sm text-white/75 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white">Explore the live website <ArrowDown className="h-4 w-4" /></a>
-              <p className="pt-4 font-mono text-[9px] uppercase tracking-[0.16em] text-white/45">Your coaching business. Your voice. Your page.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <EditorialCTA
+        id="ffc-cta"
+        eyebrow="10 / Take the next step"
+        title="Your next client could start here."
+        description="Tell FunnelForCoach what you do. Turn your coaching idea into a page worth sharing."
+        primaryLabel="Create your landing page"
+        primaryHref="https://www.funnelforcoach.com/"
+        secondaryLabel="Explore the live website"
+        secondaryHref="#ffc-live-site"
+        caption="Your coaching business. Your voice. Your page."
+        wordmark="FUNNELFORCOACH"
+      />
     </div>
   );
 }

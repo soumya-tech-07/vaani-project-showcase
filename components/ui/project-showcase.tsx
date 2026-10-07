@@ -1,35 +1,15 @@
 "use client"
 
-import { ArrowRight, ArrowUpRight, Check, Circle, Sparkles } from "lucide-react"
+import { ArrowRight, ArrowUpRight, Check } from "lucide-react"
 import { products } from "@/data/products"
 import { GlowingEffect } from "@/components/ui/glowing-effect"
-import ArrowFillButton from "@/components/ui/arrow-fill-button"
 import { DiaTextReveal } from "@/components/ui/dia-text-reveal"
 
 const hrefFor = (slug: string) => (slug === "vaani" ? "/vaani" : slug === "lumina" ? "/products/mastreach" : `/products/${slug}`)
 
-function Preview({ product, featured = false }: { product: (typeof products)[number]; featured?: boolean }) {
-  return (
-    <div className={`relative overflow-hidden border border-[#E2E8F0] bg-white ${featured ? "h-[22rem] sm:h-[30rem]" : "h-44"}`}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(40,56,216,0.18),transparent_34%),linear-gradient(135deg,#F8FAFC_0%,#EEF0FF_55%,#F3F0FF_100%)] product-visual-shimmer" />
-      {product.heroImage ? (
-        <img src={product.heroImage} alt={`${product.title} preview`} className="absolute inset-6 h-[calc(100%-3rem)] w-[calc(100%-3rem)] object-contain mix-blend-multiply transition-transform duration-700 group-hover:scale-[1.04]" />
-      ) : (
-        <div className="absolute inset-6 grid place-items-center border border-white/80 bg-white/50">
-          <span className="text-5xl font-black tracking-[-0.1em] text-[#2838D8]/20">{product.title.slice(0, 2).toUpperCase()}</span>
-        </div>
-      )}
-      <div className="absolute right-4 top-4 rounded-full border border-white/80 bg-white/80 px-2 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-[#2838D8]">
-        {product.status}
-      </div>
-    </div>
-  )
-}
-
 export function ProjectShowcase() {
-  const featured = products[0]
   const liveCount = products.filter((product) => product.status === "live").length
-  const indexProducts = products.slice(1, 10)
+  const indexProducts = products.slice(0, 10)
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#F8FAFC] text-[#111827]">
@@ -77,34 +57,6 @@ export function ProjectShowcase() {
           </div>
         </section>
 
-        <section id="spotlight" className="border-b border-[#E2E8F0] bg-[#F8FAFC] py-20 md:py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-10 flex flex-col justify-between gap-4 border-b border-[#E2E8F0] pb-6 sm:flex-row sm:items-end">
-              <div><p className="mb-1 text-xs font-mono font-bold uppercase tracking-widest text-[#2838D8]">[Product monograph 01]</p><h2 className="text-3xl font-black uppercase tracking-[-0.06em] sm:text-5xl">{featured.title} Voice Engine</h2></div>
-              <div className="font-mono text-xs text-[#64748B]"><span className="inline-flex items-center gap-1.5 font-bold text-[#10B981]"><Circle className="h-2 w-2 fill-current" /> Active production</span> / Revised Q1 2026</div>
-            </div>
-            <div className="reveal-on-scroll grid items-center gap-8 lg:grid-cols-12">
-              <a href={hrefFor(featured.slug)} className="group lg:col-span-7"><Preview product={featured} featured /></a>
-              <div className="lg:col-span-5 lg:pl-8">
-                <div className="crm-reveal mb-5 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#7C2EDB]"><Sparkles className="h-4 w-4" /> Voice intelligence</div>
-                <h3 className="text-4xl font-black leading-[0.95] tracking-[-0.07em] sm:text-6xl"><DiaTextReveal as="span" text="Just speak." className="block" /><DiaTextReveal as="span" text="Vaani writes." className="block" delay={0.16} textColor="#2838D8" /></h3>
-                <p className="crm-reveal mt-6 text-base leading-relaxed text-[#475569]" style={{ animationDelay: "180ms" }}>{featured.shortDescription}</p>
-                <ArrowFillButton
-                  href={hrefFor(featured.slug)}
-                  btnText="Open Vaani route"
-                  bgColor="#2438E8"
-                  textColor="#ffffff"
-                  fillBgColor="#b8ff00"
-                  fillTextColor="#111827"
-                  hoverFillBgColor="#dfff80"
-                  hoverFillTextColor="#111827"
-                  className="mt-8"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section id="products" className="bg-white py-24 md:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-12 flex items-end justify-between border-b border-[#E2E8F0] pb-6">
@@ -115,10 +67,10 @@ export function ProjectShowcase() {
               {indexProducts.map((product, index) => (
                 <a key={product.slug} href={hrefFor(product.slug)} className="product-index-row group relative grid gap-6 overflow-hidden rounded-3xl border border-[#E2E8F0] bg-[#FCFDFE] px-5 py-8 transition duration-300 hover:-translate-y-1 hover:border-[#C7D2FE] hover:bg-white hover:shadow-[0_10px_28px_rgba(40,56,216,0.06)] sm:px-7 lg:grid-cols-12 lg:items-center lg:px-8">
                   <GlowingEffect disabled={false} glow spread={36} proximity={48} inactiveZone={0.2} borderWidth={4} />
-                  <div className="relative flex items-baseline gap-3 lg:col-span-1"><span className="crm-reveal font-mono text-3xl font-extrabold tracking-[-0.08em] text-[#111827] transition group-hover:text-[#2838D8]" style={{ animationDelay: `${index * 60}ms` }}>{String(index + 2).padStart(2, "0")}</span><span className="crm-reveal text-[10px] font-mono uppercase text-[#64748B] lg:hidden" style={{ animationDelay: `${index * 60 + 40}ms` }}>{product.category}</span></div>
+                <div className="relative flex items-baseline gap-3 lg:col-span-1"><span className="crm-reveal font-mono text-3xl font-extrabold tracking-[-0.08em] text-[#111827] transition group-hover:text-[#2838D8]" style={{ animationDelay: `${index * 60}ms` }}>{String(index + 1).padStart(2, "0")}</span><span className="crm-reveal text-[10px] font-mono uppercase text-[#64748B] lg:hidden" style={{ animationDelay: `${index * 60 + 40}ms` }}>{product.category}</span></div>
                   <div className="relative lg:col-span-3"><div className="mb-1 flex items-center gap-2"><span className="rounded bg-[#EEF0FF] px-2 py-0.5 text-[10px] font-mono font-bold uppercase text-[#7C2EDB]">{product.status}</span><span className="text-[11px] font-mono text-[#64748B]">{product.year}</span></div><h3 className="text-2xl font-black tracking-tight transition-all duration-300 group-hover:translate-x-1 group-hover:tracking-[-0.02em] group-hover:text-[#2838D8]"><DiaTextReveal as="span" text={product.title} /></h3><p className="text-xs font-mono text-[#64748B]">{product.category}</p></div>
                   <p className="crm-reveal relative text-sm leading-relaxed text-[#475569] lg:col-span-4" style={{ animationDelay: `${index * 60 + 160}ms` }}>{product.shortDescription}</p>
-                  <div className="relative flex items-center justify-between gap-4 lg:col-span-4 lg:justify-end"><div className="hidden h-10 w-16 items-center justify-center overflow-hidden border border-[#E2E8F0] bg-[#EEF0FF] text-[10px] font-mono font-bold text-[#2838D8] transition-transform duration-300 group-hover:scale-105 sm:flex">{product.title.slice(0, 3).toUpperCase()}</div><span className="grid h-10 w-10 place-items-center rounded-full border border-[#E2E8F0] transition duration-300 group-hover:border-[#2838D8] group-hover:bg-[#2838D8] group-hover:text-white"><ArrowRight className="action-arrow h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110" /></span></div>
+                  <div className="relative flex items-center justify-between gap-4 lg:col-span-4 lg:justify-end"><div className="hidden h-10 w-16 items-center justify-center overflow-hidden border border-[#E2E8F0] bg-[#EEF0FF] text-[10px] font-mono font-bold text-[#2838D8] transition-transform duration-300 group-hover:scale-105 sm:flex">{product.title.slice(0, 3).toUpperCase()}</div><span className="grid h-10 w-10 place-items-center rounded-full border border-[#E2E8F0] transition duration-300 group-hover:border-[#2838D8] group-hover:bg-[#2838D8] group-hover:text-[#111827]"><ArrowRight className="action-arrow h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110" /></span></div>
                 </a>
               ))}
             </div>
