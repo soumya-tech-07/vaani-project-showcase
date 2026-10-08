@@ -19,6 +19,9 @@ import { ProductContactManagement } from "./ProductContactManagement";
 import { ProductCrmShowcase } from "./ProductCrmShowcase";
 import { FunnelForCoachHero } from "./FunnelForCoachHero";
 import { FunnelForCoachStory } from "./FunnelForCoachStory";
+import { AIVoiceCallsPage } from "./AIVoiceCallsPage";
+import { GitHubContextPage } from "./GitHubContextPage";
+import { ProductFooter } from "./ProductFooter";
 
 interface ProductDetailPageProps {
   product: Product;
@@ -36,6 +39,14 @@ export function ProductDetailPage({ product }: ProductDetailPageProps) {
         <FunnelForCoachStory />
       </>
     );
+  }
+
+  if (product.slug === "convert") {
+    return <AIVoiceCallsPage product={product} />;
+  }
+
+  if (product.slug === "github-context") {
+    return <GitHubContextPage product={product} />;
   }
 
   const theme = product.theme ?? {
@@ -93,21 +104,7 @@ export function ProductDetailPage({ product }: ProductDetailPageProps) {
         ))}
       </div>
 
-      <footer className="py-12 px-6 border-t border-[var(--project-border)] bg-[var(--project-surface)] text-center">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-[var(--project-text)] font-bold text-xl tracking-tighter">
-            ProjectShowcase
-          </div>
-          <div className="flex gap-8 text-[var(--project-secondary)] text-sm font-medium">
-            <a href="/" className="hover:text-[var(--project-text)] transition-colors">Products</a>
-            <a href="#" className="hover:text-[var(--project-primary)] transition-colors">About</a>
-            <a href="#" className="hover:text-[var(--project-primary)] transition-colors">Contact</a>
-          </div>
-          <div className="text-[var(--project-secondary)] text-xs font-mono">
-            © 2024 ProjectShowcase. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <ProductFooter />
     </div>
   );
 }
