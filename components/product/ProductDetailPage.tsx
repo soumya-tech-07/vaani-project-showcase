@@ -23,6 +23,9 @@ import { AIVoiceCallsPage } from "./AIVoiceCallsPage";
 import { GitHubContextPage } from "./GitHubContextPage";
 import { LeadFinderPage } from "./LeadFinderPage";
 import { BlogEnginePage } from "./BlogEnginePage";
+import { ConversationIntelligencePage } from "./ConversationIntelligencePage";
+import { WhatsAppAutomationPage } from "./WhatsAppAutomationPage";
+import { SEOOpportunitiesPage } from "./SEOOpportunitiesPage";
 import { ProductFooter } from "./ProductFooter";
 
 interface ProductDetailPageProps {
@@ -57,6 +60,18 @@ export function ProductDetailPage({ product }: ProductDetailPageProps) {
 
   if (product.slug === "blog-engine") {
     return <BlogEnginePage product={product} />;
+  }
+
+  if (product.slug === "conversation-intelligence") {
+    return <ConversationIntelligencePage product={product} />;
+  }
+
+  if (product.slug === "whatsapp-automation") {
+    return <WhatsAppAutomationPage product={product} />;
+  }
+
+  if (product.slug === "seo-opportunities") {
+    return <SEOOpportunitiesPage product={product} />;
   }
 
   const theme = product.theme ?? {

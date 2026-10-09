@@ -57,7 +57,7 @@ export interface Product {
   technology: string[];
   userJourney: ProductJourneyStep[];
   CTA: ProductCTA;
-  status: 'live' | 'beta' | 'development';
+  status: 'live' | 'beta' | 'development' | 'private-beta';
   theme?: ProductTheme;
   metadata?: ProductMetadata;
   sections?: ('hero' | 'preview' | 'story' | 'demo' | 'features' | 'gallery' | 'journey' | 'process' | 'tech' | 'cta' | 'inbox' | 'leads' | 'contacts')[];
@@ -351,9 +351,153 @@ export const blogEngineProduct: Product = {
   sections: ['hero', 'story', 'process', 'cta'],
 };
 
+export const conversationIntelligenceProduct: Product = {
+  slug: 'conversation-intelligence',
+  title: 'Conversation Intelligence',
+  shortDescription: 'Transcription for your meetings and a live transcript while a sales call is still running, with the notes and follow-up draft written before you have left the call.',
+  tagline: 'Leave the call with the details in hand.',
+  category: 'Sales / Meetings / AI',
+  year: '2026',
+  heroImage: '',
+  logo: '',
+  liveUrl: '#',
+  videoUrl: '#',
+  screenshots: [],
+  features: [],
+  problem: 'Sales calls contain useful details that are easily lost when notes are incomplete and follow-up is reconstructed from memory.',
+  solution: 'Conversation Intelligence records and transcribes calls, separates speakers, and prepares notes and a follow-up draft for review.',
+  howItWorks: [
+    { step: 'Join the call', description: 'It sits in the meeting or captures from your desktop, depending on where the call happens.' },
+    { step: 'Transcribe live', description: 'Speakers separated, transcript running while you are still talking.' },
+    { step: 'Summarise on hangup', description: 'Notes, objections, commitments and next steps, written without you touching anything.' },
+    { step: 'Draft the follow-up', description: 'Pulled from your knowledge base, ready for you to edit and send.' },
+  ],
+  technology: [],
+  userJourney: [],
+  CTA: {
+    primaryText: 'Join the waitlist',
+    primaryUrl: 'mailto:hello@rianinfotech.com?subject=Join%20the%20waitlist%20for%20Conversation%20Intelligence',
+    secondaryText: 'Back to products',
+    secondaryUrl: '/#products',
+  },
+  status: 'development',
+  theme: {
+    primary: '#2838D8',
+    secondary: '#475569',
+    background: '#FFFFFF',
+    text: '#111827',
+    accent: '#7C2EDB',
+    border: '#E2E8F0',
+    highlight: '#EEF0FF',
+    surface: '#FFFFFF',
+  },
+  metadata: {
+    heroBadge: 'Products / Nurture',
+    heroSubtext: 'In build',
+  },
+  sections: ['hero', 'story', 'process', 'cta'],
+};
+
+export const whatsappAutomationProduct: Product = {
+  slug: 'whatsapp-automation',
+  title: 'WhatsApp Automation',
+  shortDescription: 'A whitelabel WhatsApp platform that manages conversations, automates follow-ups, qualifies leads with AI, and routes promising leads to AI voice calls.',
+  tagline: 'Turn inbound chats into conversations that move forward.',
+  category: 'WhatsApp / Sales / AI',
+  year: '2026',
+  heroImage: '',
+  logo: '',
+  liveUrl: '#',
+  videoUrl: '#',
+  screenshots: [],
+  features: [],
+  problem: 'Businesses can lose inbound leads when responses are delayed and follow-up is inconsistent.',
+  solution: 'WhatsApp Automation brings a shared inbox, broadcasts, drip sequences, conversational qualification, and AI voice calls together on Meta Cloud API.',
+  howItWorks: [
+    { step: 'Lead lands', description: 'From your ads, your site, a Click-to-WhatsApp campaign or a QR code. The first reply goes out in seconds.' },
+    { step: 'The bot qualifies', description: 'Budget, authority, need and timing, asked conversationally rather than as a form. Answers are scored as they come.' },
+    { step: 'Hot leads get called', description: 'An AI voice call goes out to the leads that qualify, with a budget cap and a kill switch you control.' },
+    { step: 'A human takes over', description: 'Anyone on your team can step into the thread from the shared inbox at any point, and the bot stands down.' },
+  ],
+  technology: ['Meta Cloud API'],
+  userJourney: [],
+  CTA: {
+    primaryText: 'Book a demo',
+    primaryUrl: 'mailto:hello@rianinfotech.com?subject=Book%20a%20demo%20for%20WhatsApp%20Automation',
+    secondaryText: 'Back to products',
+    secondaryUrl: '/#products',
+  },
+  status: 'live',
+  theme: {
+    primary: '#2838D8',
+    secondary: '#475569',
+    background: '#FFFFFF',
+    text: '#111827',
+    accent: '#7C2EDB',
+    border: '#E2E8F0',
+    highlight: '#EEF0FF',
+    surface: '#FFFFFF',
+  },
+  metadata: {
+    heroBadge: 'Products / Nurture',
+    heroSubtext: 'Live',
+  },
+  sections: ['hero', 'story', 'process', 'cta'],
+};
+
+export const seoOpportunitiesProduct: Product = {
+  slug: 'seo-opportunities',
+  title: 'SEO Opportunities',
+  shortDescription: 'Find pages just outside page one, research competing results, and generate SEO improvements for review and approval.',
+  tagline: 'Find the pages sitting just off page one.',
+  category: 'Everyday tools',
+  year: '2026',
+  heroImage: '',
+  logo: '',
+  liveUrl: '#',
+  videoUrl: '#',
+  screenshots: [],
+  features: [],
+  problem: 'Most SEO tools hand you a list of problems instead of prioritizing the pages that are already close to earning more clicks.',
+  solution: 'SEO Opportunities reads Search Console and analytics together, researches competing results, and drafts changes with reasoning for review.',
+  howItWorks: [
+    { step: 'Connect your data', description: 'Search Console and analytics, read together rather than in separate tabs.' },
+    { step: 'Find the near misses', description: 'Queries close to page one, ranked by what they would be worth against how hard they are.' },
+    { step: 'Research what is winning', description: 'Keyword volume, difficulty and a teardown of the pages currently ahead of you.' },
+    { step: 'Approve the fix', description: 'Drafted changes with the reasoning shown. Apply or discard, tracked either way.' },
+  ],
+  technology: ['Search Console', 'Analytics'],
+  userJourney: [],
+  CTA: {
+    primaryText: 'Request access',
+    primaryUrl: 'https://www.rianinfotech.com/contact',
+    secondaryText: 'All products',
+    secondaryUrl: '/#products',
+  },
+  status: 'private-beta',
+  theme: {
+    primary: '#2838D8',
+    secondary: '#475569',
+    background: '#FFFFFF',
+    text: '#111827',
+    accent: '#7C2EDB',
+    border: '#E2E8F0',
+    highlight: '#EEF0FF',
+    surface: '#FFFFFF',
+  },
+  metadata: {
+    heroBadge: 'Products / Everyday tools',
+    heroSubtext: 'Private beta',
+  },
+  sections: ['hero', 'story', 'process', 'cta'],
+};
+
 export const products: Product[] = [
   leadFinderProduct,
   blogEngineProduct,
+  conversationIntelligenceProduct,
+  whatsappAutomationProduct,
+  seoOpportunitiesProduct,
   vaaniProduct,
   aiVoiceCallsProduct,
   githubContextProduct,
