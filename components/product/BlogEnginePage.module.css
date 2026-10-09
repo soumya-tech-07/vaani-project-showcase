@@ -1,0 +1,114 @@
+.page {
+  --ink: #111827;
+  --line: #e2e8f0;
+  --blue: #2838d8;
+  --purple: #7c2edb;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: var(--font-blog-engine-body), "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+.page :is(h1, h2, h3, [class~="font-serif"]) {
+  font-family: var(--font-blog-engine-heading), Outfit, system-ui, sans-serif;
+  font-weight: 700;
+}
+
+.page :is(a, button):focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+
+.hero {
+  isolation: isolate;
+}
+
+.hero::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 24% 28%, rgb(40 56 216 / 9%), transparent 42%),
+    radial-gradient(ellipse at 82% 12%, rgb(124 46 219 / 6.5%), transparent 38%),
+    radial-gradient(rgb(100 116 139 / 11%) 1px, transparent 1px);
+  background-size: auto, auto, 20px 20px;
+  content: "";
+  pointer-events: none;
+}
+
+.heroTitle {
+  color: #19223a;
+}
+
+.handwriting {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.heroFlow {
+  border-color: rgb(17 24 39 / 15%);
+}
+
+.glancePanel {
+  border-radius: 1rem 1rem 1rem 0;
+}
+
+.stepRow h3 {
+  transition: color 180ms ease;
+}
+
+.stepRow:hover h3 {
+  color: var(--blue);
+}
+
+.primaryButton {
+  border: 2px solid var(--ink);
+  border-radius: 9999px;
+  box-shadow: 4px 4px 0 var(--ink);
+  transition:
+    transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 220ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 180ms ease;
+}
+
+.primaryButton:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.primaryButton:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.secondaryButton {
+  border: 2px solid var(--ink);
+  border-radius: 9999px;
+  transition:
+    background-color 180ms ease,
+    transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.secondaryButton:hover {
+  transform: translateY(-2px);
+  background: #eef0ff;
+}
+
+@media (max-width: 640px) {
+  .glancePanel {
+    border-radius: 0.75rem 0.75rem 0.75rem 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page *,
+  .page *::before,
+  .page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

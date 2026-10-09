@@ -1,0 +1,193 @@
+.page {
+  --paper: #ffffff;
+  --ink: #111827;
+  --muted: #475569;
+  --line: #e2e8f0;
+  --blue: #2838d8;
+  --purple: #7c2edb;
+  --lavender: #eef0ff;
+  min-height: 100vh;
+  overflow-x: clip;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-lead-finder-body), "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+.page :is(h1, h2, h3, [class~="font-serif"]) {
+  font-family: var(--font-lead-finder-heading), Outfit, system-ui, sans-serif;
+  font-weight: 700;
+}
+
+.page .heroTitle {
+  background: linear-gradient(100deg, #2838d8, #7c2edb);
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.page .handwriting {
+  display: block;
+  width: min(100%, 34rem);
+  height: auto;
+  min-height: 4.5rem;
+  overflow: visible;
+}
+
+.page svg {
+  stroke-width: 2.25;
+}
+
+.page :is(a, button):focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+
+.hero::before {
+  position: absolute;
+  z-index: -1;
+  top: -8rem;
+  left: -12rem;
+  width: min(46rem, 76vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(40 56 216 / 16%), rgb(124 46 219 / 0%) 70%);
+  content: "";
+  pointer-events: none;
+}
+
+.hero::after {
+  position: absolute;
+  z-index: -1;
+  top: 5%;
+  right: 2%;
+  width: min(42rem, 54vw);
+  height: 85%;
+  background-image: radial-gradient(rgb(148 163 184 / 18%) 1px, transparent 1px);
+  background-size: 14px 14px;
+  content: "";
+  mask-image: linear-gradient(135deg, #000 0%, transparent 78%);
+  pointer-events: none;
+}
+
+.pointerMarker {
+  border: 1px solid rgb(17 24 39 / 45%);
+  background: rgb(255 255 255 / 10%);
+  mix-blend-mode: multiply;
+}
+
+.primaryButton {
+  border: 2px solid var(--ink);
+  border-radius: 9999px;
+  box-shadow: 4px 4px 0 var(--ink);
+  transition:
+    transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 220ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 180ms ease;
+}
+
+.primaryButton:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.primaryButton:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.secondaryButton {
+  border: 2px solid var(--ink);
+  border-radius: 9999px;
+  transition:
+    background-color 180ms ease,
+    transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.secondaryButton:hover {
+  transform: translateY(-2px);
+  background: var(--lavender);
+}
+
+.heroPanel {
+  border: 2px solid var(--ink);
+  border-radius: 24px;
+  box-shadow: 8px 8px 0 var(--line);
+}
+
+.orbit {
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.flowRow > span:nth-child(2) {
+  transition: color 180ms ease, transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.flowRow:hover > span:nth-child(2) {
+  transform: translateX(3px);
+  color: var(--blue);
+}
+
+.stepRow h3 {
+  transition: color 180ms ease;
+}
+
+.stepRow:hover h3 {
+  color: var(--blue);
+}
+
+.darkSecondary {
+  border: 2px solid rgb(255 255 255 / 34%);
+  border-radius: 9999px;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.darkSecondary:hover {
+  transform: translateY(-2px);
+  border-color: white;
+  background: rgb(255 255 255 / 8%);
+}
+
+.finalCta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.finalCta::after {
+  position: absolute;
+  z-index: -1;
+  right: -8rem;
+  bottom: -17rem;
+  width: min(42rem, 75vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(40 56 216 / 24%), transparent 70%);
+  content: "";
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .heroPanel {
+    border-radius: 16px;
+    box-shadow: 4px 4px 0 var(--line);
+  }
+
+  .hero::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page *,
+  .page *::before,
+  .page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

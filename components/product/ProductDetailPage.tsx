@@ -21,6 +21,8 @@ import { FunnelForCoachHero } from "./FunnelForCoachHero";
 import { FunnelForCoachStory } from "./FunnelForCoachStory";
 import { AIVoiceCallsPage } from "./AIVoiceCallsPage";
 import { GitHubContextPage } from "./GitHubContextPage";
+import { LeadFinderPage } from "./LeadFinderPage";
+import { BlogEnginePage } from "./BlogEnginePage";
 import { ProductFooter } from "./ProductFooter";
 
 interface ProductDetailPageProps {
@@ -35,7 +37,7 @@ export function ProductDetailPage({ product }: ProductDetailPageProps) {
   if (product.slug === "funnelforcoach") {
     return (
       <>
-        <FunnelForCoachHero />
+        <FunnelForCoachHero product={product} />
         <FunnelForCoachStory />
       </>
     );
@@ -47,6 +49,14 @@ export function ProductDetailPage({ product }: ProductDetailPageProps) {
 
   if (product.slug === "github-context") {
     return <GitHubContextPage product={product} />;
+  }
+
+  if (product.slug === "lead-finder") {
+    return <LeadFinderPage product={product} />;
+  }
+
+  if (product.slug === "blog-engine") {
+    return <BlogEnginePage product={product} />;
   }
 
   const theme = product.theme ?? {
@@ -88,6 +98,7 @@ export function ProductDetailPage({ product }: ProductDetailPageProps) {
 
   return (
     <div
+      id="top"
       className="case-study-shell min-h-screen text-[var(--project-text)] selection:bg-[var(--project-primary)] selection:text-white"
       style={{
         backgroundColor: 'var(--project-bg)',

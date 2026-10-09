@@ -80,12 +80,23 @@ export function AIVoiceCallsPage({ product }: { product: Product }) {
 
   return (
     <main
+      id="top"
       className={`${styles.page} ${heading.variable} ${body.variable} min-h-screen overflow-x-clip bg-white text-[#111827]`}
       style={{ fontFamily: "var(--font-ai-voice-body), sans-serif" }}
     >
-      <ProductNav title={product.title} liveUrl={product.liveUrl} />
+      <ProductNav
+        title={product.title}
+        liveUrl={product.liveUrl}
+        links={[
+          { label: "Product", href: "#what-it-does" },
+          { label: "How it works", href: "#how-it-works" },
+          { label: "For you", href: "#for-you" },
+        ]}
+        actionLabel="Hear a sample call"
+        actionHref="#final-cta"
+      />
 
-      <div className="pt-12">
+      <div>
         <section className="voice-hero relative isolate overflow-hidden px-5 pb-20 pt-8 sm:px-8 sm:pb-28 sm:pt-12 lg:px-12 lg:pt-16">
           <div className="mx-auto max-w-[1280px]">
             <div className="grid gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:gap-14">

@@ -18,17 +18,7 @@ import ArrowFillButton from "@/components/ui/arrow-fill-button"
 import RevealText from "@/components/ui/reveal-text"
 import { HeroHandwriting, HeroReveal } from "@/components/product/ProjectHeroAnimation"
 import { EditorialCTA } from "@/components/product/EditorialCTA"
-import {
-  ResizableMobileNav,
-  ResizableMobileNavHeader,
-  ResizableMobileNavMenu,
-  ResizableMobileNavToggle,
-  ResizableNavbar,
-  ResizableNavbarButton,
-  ResizableNavbarLogo,
-  ResizableNavBody,
-  ResizableNavItems,
-} from "@/components/ui/resizable-navbar"
+import { ProductNav } from "@/components/product/ProductNav"
 import { useEffect, useRef, useState } from "react"
 
 const productUrl = "https://vaani.rianinfotech.com/"
@@ -333,61 +323,15 @@ function LiveVaaniPreview() {
 }
 
 export function VaaniLandingPage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
   return (
     <main className="rian-editorial-theme rian-vaani min-h-screen overflow-x-hidden bg-[#FFFFFF] text-[#111827] selection:bg-[#EEF0FF] selection:text-[#111827]">
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-[#E2E8F0]/80 bg-white/90 backdrop-blur-xl">
-        <ResizableNavbar>
-          <ResizableNavBody>
-            <ResizableNavbarLogo />
-            <ResizableNavItems
-              items={navItems.map((item) => ({
-                name: item.label,
-                link: item.href,
-              }))}
-            />
-            <ArrowFillButton
-              btnText="View Product"
-              href={productUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-10 min-w-[10rem] px-5 pr-14 text-xs"
-            />
-          </ResizableNavBody>
-          <ResizableMobileNav>
-            <ResizableMobileNavHeader>
-              <ResizableNavbarLogo />
-              <ResizableMobileNavToggle
-                isOpen={mobileMenuOpen}
-                onClick={() => setMobileMenuOpen((open) => !open)}
-              />
-            </ResizableMobileNavHeader>
-            <ResizableMobileNavMenu
-              isOpen={mobileMenuOpen}
-              onClose={() => setMobileMenuOpen(false)}
-            >
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-full rounded-lg px-3 py-2 text-sm text-[#475569] hover:bg-[#EEF0FF] hover:text-[#111827]"
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <ResizableNavbarButton
-                href={productUrl}
-                className="mt-2 w-full"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                View Product <ArrowUpRight size={14} />
-              </ResizableNavbarButton>
-            </ResizableMobileNavMenu>
-          </ResizableMobileNav>
-        </ResizableNavbar>
-      </header>
+      <ProductNav
+        title="Vaani"
+        liveUrl={productUrl}
+        links={navItems.map((item) => ({ label: item.label, href: item.href }))}
+        actionLabel="View Product"
+        actionHref={productUrl}
+      />
       <section id="top" className="rian-paper-wash relative border-b border-[#E2E8F0]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_15%,rgba(124,46,219,0.12),transparent_28%),linear-gradient(180deg,#FFFFFF,#F8FAFC)]" />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-4 pt-28 pb-20 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16 lg:px-8 lg:pt-36 lg:pb-24">

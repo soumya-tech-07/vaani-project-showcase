@@ -1,25 +1,26 @@
-import Link from "next/link";
 import { ArrowRight, Check, Globe2, Sparkles } from "lucide-react";
 import Hero17 from "@/components/ui/hero-17";
+import type { Product } from "@/data/products";
+import { ProductNav } from "./ProductNav";
 
 const inputExample =
   "I help first-time managers become better leaders through a leadership coaching program.";
 const productHome = "https://www.funnelforcoach.com/";
 
-export function FunnelForCoachHero() {
+export function FunnelForCoachHero({ product }: { product: Product }) {
   return (
-    <main className="rian-editorial-theme rian-funnel ffc-hero relative isolate w-full min-w-0 overflow-x-clip bg-white text-black">
-      <header className="relative z-10 flex w-full items-center justify-between border-b border-black px-5 py-5 sm:px-8 lg:px-12">
-        <Link
-          href="/"
-          className="text-sm font-semibold tracking-tight text-black underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black"
-        >
-          FUNNELFORCOACH
-        </Link>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#525252] sm:text-xs">
-          AI / Funnels / Coaching
-        </span>
-      </header>
+    <main id="top" className="rian-editorial-theme rian-funnel ffc-hero relative isolate w-full min-w-0 overflow-x-clip bg-white text-black">
+      <ProductNav
+        title={product.title}
+        liveUrl={productHome}
+        links={[
+          { label: "Experience", href: "#ffc-experience" },
+          { label: "Workflow", href: "#ffc-workflow" },
+          { label: "Live site", href: "#ffc-live-site" },
+        ]}
+        actionLabel="Explore FunnelForCoach"
+        actionHref={productHome}
+      />
 
       <div className="ffc-hero-layout rian-paper-wash relative mx-auto grid w-full max-w-[1440px] min-w-0 items-center gap-8 px-5 py-10 sm:px-8 sm:py-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-12 lg:px-12 lg:py-20">
         <Hero17 />

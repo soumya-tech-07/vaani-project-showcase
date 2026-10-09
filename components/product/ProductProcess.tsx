@@ -9,7 +9,7 @@ interface ProductProcessProps {
 
 export function ProductProcess({ product }: ProductProcessProps) {
   return (
-    <section className="py-32 px-6">
+    <section id="product-process" className="py-32 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-20 text-center">
           <h2 className="text-[#111827] text-4xl font-bold tracking-tight mb-4">How It Works</h2>

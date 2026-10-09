@@ -78,12 +78,23 @@ export function GitHubContextPage({ product }: { product: Product }) {
 
   return (
     <main
+      id="top"
       className={`${styles.page} ${heading.variable} ${body.variable} min-h-screen overflow-x-clip bg-white text-[#111827]`}
       style={themeStyles}
     >
-      <ProductNav title={product.title} liveUrl="#" />
+      <ProductNav
+        title={product.title}
+        liveUrl="#"
+        links={[
+          { label: "Overview", href: "#top" },
+          { label: "How it works", href: "#how-it-works" },
+          { label: "All products", href: "/#products" },
+        ]}
+        actionLabel="Request access"
+        actionHref={requestAccessUrl}
+      />
 
-      <div className="pt-12">
+      <div>
         <section className="github-hero relative isolate overflow-hidden px-5 pb-20 pt-8 sm:px-8 sm:pb-28 sm:pt-12 lg:px-12 lg:pt-16">
           <div className="mx-auto max-w-[1280px]">
             <div className="grid gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:gap-14">

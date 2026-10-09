@@ -1,13 +1,7 @@
 "use client"
 
-import Link from "next/link"
-import { useEffect, useState } from "react"
-import {
-  motion,
-  useMotionValueEvent,
-  useReducedMotion,
-  useScroll,
-} from "framer-motion"
+import { useState } from "react"
+import { motion, useReducedMotion } from "framer-motion"
 import {
   ArrowLeft,
   ArrowRight,
@@ -30,6 +24,7 @@ import {
   Video,
 } from "lucide-react"
 import { Product } from "@/data/products"
+import { ProductNav } from "./ProductNav"
 import ArrowFillButton from "@/components/ui/arrow-fill-button"
 import { TextEffect } from "@/components/ui/text-effect"
 import { TextReveal } from "@/components/ui/text-reveal-animation"
@@ -356,101 +351,6 @@ function PremiumButton({
   )
 }
 
-const crmNavItems = [
-  { label: "Overview", href: "#overview" },
-  { label: "Inbox", href: "#inbox" },
-  { label: "Workflow", href: "#workflow" },
-]
-
-function CrmNavbar() {
-  const { scrollY } = useScroll()
-  const [raised, setRaised] = useState(false)
-  const [hovered, setHovered] = useState<string | null>(null)
-  const [active, setActive] = useState("overview")
-
-  useMotionValueEvent(scrollY, "change", (value) => setRaised(value > 56))
-
-  useEffect(() => {
-    const setActiveSection = () => {
-      const sections = crmNavItems
-        .map(({ href }) => document.querySelector(href))
-        .filter(Boolean) as HTMLElement[]
-      const current = sections.reduce(
-        (closest, section) => {
-          const distance = Math.abs(section.getBoundingClientRect().top - 132)
-          return distance < closest.distance
-            ? { id: section.id, distance }
-            : closest
-        },
-        { id: active, distance: Number.POSITIVE_INFINITY }
-      )
-      setActive(current.id)
-    }
-    setActiveSection()
-    window.addEventListener("scroll", setActiveSection, { passive: true })
-    return () => window.removeEventListener("scroll", setActiveSection)
-  }, [active])
-
-  return (
-    <motion.nav
-      animate={{
-        y: raised ? 10 : 0,
-        width: raised ? "min(54%, 1344px)" : "100%",
-      }}
-      transition={{ type: "spring", stiffness: 230, damping: 32 }}
-      className={`crm-navbar mx-auto flex items-center justify-between px-5 py-4 sm:px-8 ${raised ? "crm-navbar-raised" : ""}`}
-    >
-      <Link
-        href="/"
-        className="inline-flex items-center gap-3 text-xs font-semibold text-[#475569] transition-colors hover:text-[#7C2EDB]"
-      >
-        <span className="grid h-8 w-8 place-items-center rounded-lg bg-[#EEF0FF] text-[#2438E8]">
-          <MessageCircle className="h-4 w-4" />
-        </span>
-        <span>
-          <span className="block text-sm font-bold tracking-tight text-[#111827]">
-            WA Inbox
-          </span>
-          <span className="hidden text-[9px] tracking-[0.12em] uppercase sm:block">
-            Rian Infotech
-          </span>
-        </span>
-      </Link>
-      <div
-        onMouseLeave={() => setHovered(null)}
-        className="relative hidden items-center gap-1 rounded-full border border-transparent bg-[#F8FAFC]/70 p-1 lg:flex"
-      >
-        {crmNavItems.map((item) => {
-          const selected = active === item.href.slice(1)
-          return (
-            <a
-              key={item.href}
-              href={item.href}
-              onMouseEnter={() => setHovered(item.href)}
-              className={`relative rounded-full px-3 py-1.5 text-[11px] font-semibold transition-colors ${selected ? "text-[#2438E8]" : "text-[#475569] hover:text-[#111827]"}`}
-            >
-              {(hovered === item.href || (hovered === null && selected)) && (
-                <motion.span
-                  layoutId="crm-nav-highlight"
-                  className="absolute inset-0 rounded-full bg-white shadow-[0_2px_8px_rgba(36,56,232,0.09)]"
-                  transition={{ type: "spring", stiffness: 360, damping: 28 }}
-                />
-              )}
-              <span className="relative z-10">{item.label}</span>
-            </a>
-          )
-        })}
-      </div>
-      <a
-        href="#inbox"
-        className="inline-flex items-center gap-1.5 rounded-full bg-[#2438E8] px-4 py-2 text-xs font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-[#2838D8]"
-      >
-        Explore product <ArrowRight className="h-3.5 w-3.5" />
-      </a>
-    </motion.nav>
-  )
-}
-
 export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
   const [selectedConversation, setSelectedConversation] = useState(0)
   const [selectedContact, setSelectedContact] = useState(0)
@@ -460,7 +360,17 @@ export function ProductCrmShowcase({ product }: ProductCrmShowcaseProps) {
 
   return (
     <main className="rian-editorial-theme crm-page min-h-screen overflow-x-hidden bg-[#F8FAFC] text-[#111827] selection:bg-[#2838D8]/35">
-      <CrmNavbar />
+      <ProductNav
+        title={product.title}
+        liveUrl="#inbox"
+        links={[
+          { label: "Overview", href: "#overview" },
+          { label: "Inbox", href: "#inbox" },
+          { label: "Workflow", href: "#workflow" },
+        ]}
+        actionLabel="Explore product"
+        actionHref="#inbox"
+      />
 
       <section className="crm-reference-hero rian-paper-wash relative px-5 pt-16 pb-10 sm:px-8 lg:pt-20 lg:pb-12">
         <div

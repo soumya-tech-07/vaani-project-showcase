@@ -1,56 +1,81 @@
 "use client"
 
-import { ArrowRight, ArrowUpRight, Check } from "lucide-react"
+import { ArrowRight, ArrowUpRight, Code2, Radio } from "lucide-react"
 import { products } from "@/data/products"
 import { GlowingEffect } from "@/components/ui/glowing-effect"
 import { DiaTextReveal } from "@/components/ui/dia-text-reveal"
 
 const hrefFor = (slug: string) => (slug === "vaani" ? "/vaani" : slug === "lumina" ? "/products/mastreach" : `/products/${slug}`)
+const liveProductSlugs = ["lumina", "funnelforcoach", "vaani"]
 
 export function ProjectShowcase() {
-  const liveCount = products.filter((product) => product.status === "live").length
-  const indexProducts = products.slice(0, 10)
+  const portfolioProducts = products.filter((product) => !/^Product \d+$/.test(product.title))
+  const liveCount = portfolioProducts.filter((product) => liveProductSlugs.includes(product.slug)).length
+  const developmentCount = portfolioProducts.length - liveCount
+  const indexProducts = [...portfolioProducts].sort((a, b) => {
+    const aPriority = liveProductSlugs.indexOf(a.slug)
+    const bPriority = liveProductSlugs.indexOf(b.slug)
+    return (aPriority === -1 ? liveProductSlugs.length : aPriority) -
+      (bPriority === -1 ? liveProductSlugs.length : bPriority)
+  })
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#F8FAFC] text-[#111827]">
       <main>
-        <section id="home" className="relative overflow-hidden border-b border-[#E2E8F0] bg-[#F8FAFC] pb-16 pt-16 sm:pt-20">
-          <div className="pointer-events-none absolute left-1/3 top-12 h-96 w-96 rounded-full bg-[#2838D8]/[0.08] blur-[120px] ambient-orb ambient-orb-blue" />
-          <div className="pointer-events-none absolute -bottom-10 right-10 h-96 w-96 rounded-full bg-[#7C2EDB]/[0.08] blur-[130px] ambient-orb ambient-orb-purple" />
+        <section id="home" className="relative overflow-hidden border-b border-[#E2E8F0] bg-[#F8FAFC] py-12 sm:py-16 lg:py-20">
+          <div className="pointer-events-none absolute -right-36 -top-40 h-[34rem] w-[34rem] rounded-full bg-[#2838D8]/[0.07] blur-[120px] ambient-orb ambient-orb-blue" />
+          <div className="pointer-events-none absolute -bottom-40 -left-24 h-96 w-96 rounded-full bg-[#7C2EDB]/[0.06] blur-[130px] ambient-orb ambient-orb-purple" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-6 lg:grid-cols-12">
-              <div className="reveal-on-load relative flex flex-col justify-between overflow-hidden rounded-3xl border border-[#E2E8F0] bg-white p-8 shadow-sm sm:p-12 lg:col-span-8">
-                <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-gradient-to-bl from-[#EEF0FF] via-[#F3F0FF] to-transparent" />
+            <div className="grid gap-5 lg:grid-cols-12">
+              <div className="reveal-on-load relative flex min-h-[31rem] flex-col justify-between overflow-hidden rounded-[2rem] border border-[#E2E8F0] bg-white p-7 shadow-[0_20px_70px_rgba(15,23,42,0.05)] sm:p-10 lg:col-span-8 lg:p-14">
+                <div className="pointer-events-none absolute -right-24 -top-28 h-96 w-96 rounded-full bg-gradient-to-bl from-[#EEF0FF] via-[#F3F0FF]/70 to-transparent" />
                 <div className="relative">
-                  <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#2838D8]/20 bg-[#EEF0FF] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#2838D8]">
-                    <span className="h-2 w-2 animate-pulse rounded-full bg-[#2838D8]" /> Independent product studio
+                  <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#2838D8]/15 bg-[#EEF0FF]/80 px-3.5 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#2838D8]">
+                    <span className="h-2 w-2 rounded-full bg-[#2838D8] shadow-[0_0_0_4px_rgba(40,56,216,0.12)]" />
+                    Independent product studio
                   </div>
-                  <h1 className="mb-6 text-4xl font-extrabold leading-[1.08] tracking-[-0.07em] sm:text-6xl">
-                    <DiaTextReveal as="span" text="Products we've built." className="block" />
-                    <DiaTextReveal as="span" text="Ideas turned into software." className="block" delay={0.16} />
+                  <h1 className="max-w-3xl text-[2.65rem] font-extrabold leading-[0.98] tracking-[-0.075em] sm:text-6xl lg:text-7xl">
+                    <DiaTextReveal as="span" text="From ideas" className="block" />
+                    <DiaTextReveal as="span" text="to useful software." className="block text-[#2838D8]" delay={0.16} />
                   </h1>
-                  <p className="crm-reveal max-w-2xl text-base leading-relaxed text-[#475569] sm:text-lg" style={{ animationDelay: "120ms" }}>
-                    Explore our product portfolio across speech intelligence, customer operations, and focused workflow tools. Carefully architected, deployed to production, and built for everyday mastery.
+                  <p className="crm-reveal mt-7 max-w-2xl text-base leading-7 text-[#475569] sm:text-lg sm:leading-8" style={{ animationDelay: "120ms" }}>
+                    We design and build focused products that make everyday work simpler—from voice productivity to customer operations and creative workflows.
                   </p>
                 </div>
-                <div className="relative mt-10 flex flex-wrap items-center gap-4 border-t border-[#E2E8F0] pt-6">
-                  <a href="#products" className="rounded-full bg-[#2438E8] px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:scale-[1.03] hover:bg-[#2838D8]">Explore index ↓</a>
-                  <a href="#contact" className="rounded-full border border-[#E2E8F0] bg-white px-6 py-3 text-sm font-semibold transition hover:border-[#2838D8]">Partner with us</a>
-                  <span className="hidden text-xs font-medium text-[#64748B] sm:ml-auto sm:inline">Curated studio showcase · 2026</span>
+                <div className="relative mt-10 flex flex-wrap items-center gap-3 border-t border-[#E2E8F0] pt-6 sm:gap-4">
+                  <a href="#products" className="inline-flex items-center gap-2 rounded-full bg-[#2438E8] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_8px_22px_rgba(36,56,232,0.2)] transition hover:-translate-y-0.5 hover:bg-[#2838D8]">
+                    Explore our products <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <a href="#contact" className="rounded-full border border-[#E2E8F0] bg-white px-6 py-3.5 text-sm font-semibold text-[#334155] transition hover:border-[#2838D8]/40 hover:text-[#2838D8]">
+                    Partner with us
+                  </a>
+                  <span className="hidden text-xs font-medium text-[#64748B] sm:ml-auto sm:block">Thoughtfully built. Ready for real work.</span>
                 </div>
               </div>
               <div className="grid gap-4 sm:grid-cols-3 lg:col-span-4 lg:grid-cols-1">
-                <div className="reveal-on-load stagger-1 flex items-center justify-between rounded-3xl border border-[#E2E8F0] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-                  <div><span className="text-xs font-bold uppercase tracking-wider text-[#64748B]">Total portfolio</span><div className="mt-1 text-3xl font-extrabold">{products.length} products</div><p className="mt-1 text-xs text-[#475569]">Across our active index</p></div>
-                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#EEF0FF] text-xl font-bold text-[#2838D8]">{products.length}</span>
+                <div className="reveal-on-load stagger-1 flex items-center justify-between rounded-[1.75rem] border border-[#E2E8F0] bg-white p-6 shadow-[0_12px_38px_rgba(15,23,42,0.04)] transition hover:-translate-y-1 hover:shadow-lg sm:p-7">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#64748B]">Product portfolio</span>
+                    <div className="mt-2 text-3xl font-extrabold tracking-tight">{portfolioProducts.length} products</div>
+                    <p className="mt-1 text-xs text-[#64748B]">Real products in our index</p>
+                  </div>
+                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#EEF0FF] text-lg font-bold text-[#2838D8]">{portfolioProducts.length}</span>
                 </div>
-                <div className="reveal-on-load stagger-2 flex items-center justify-between rounded-3xl border border-[#E2E8F0] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-                  <div><div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#10B981]"><span className="h-2.5 w-2.5 animate-pulse rounded-full bg-[#10B981]" /> Active & live</div><div className="mt-1 text-3xl font-extrabold text-[#2838D8]">{liveCount} live in prod</div><p className="mt-1 text-xs text-[#475569]">Serving clients and operators</p></div>
-                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-emerald-50 text-xl font-bold text-[#10B981]"><Check className="h-5 w-5" /></span>
+                <div className="reveal-on-load stagger-2 flex items-center justify-between rounded-[1.75rem] border border-[#E2E8F0] bg-white p-6 shadow-[0_12px_38px_rgba(15,23,42,0.04)] transition hover:-translate-y-1 hover:shadow-lg sm:p-7">
+                  <div>
+                    <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#059669]"><span className="h-2 w-2 rounded-full bg-[#10B981]" /> Live products</div>
+                    <div className="mt-2 text-3xl font-extrabold tracking-tight text-[#2838D8]">{liveCount} live</div>
+                    <p className="mt-1 text-xs text-[#64748B]">Available to use today</p>
+                  </div>
+                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-emerald-50 text-[#059669]"><Radio className="h-5 w-5" /></span>
                 </div>
-                <div className="reveal-on-load stagger-3 flex items-center justify-between rounded-3xl border border-[#E2E8F0] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-                  <div><span className="text-xs font-bold uppercase tracking-wider text-[#7C2EDB]">Core reliability</span><div className="mt-1 text-3xl font-extrabold text-[#7C2EDB]">99.9% uptime</div><p className="mt-1 text-xs text-[#475569]">Resilient product systems</p></div>
-                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#F3F0FF] text-sm font-bold text-[#7C2EDB]">SLA</span>
+                <div className="reveal-on-load stagger-3 flex items-center justify-between rounded-[1.75rem] border border-[#E2E8F0] bg-white p-6 shadow-[0_12px_38px_rgba(15,23,42,0.04)] transition hover:-translate-y-1 hover:shadow-lg sm:p-7">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#7C3AED]">In development</span>
+                    <div className="mt-2 text-3xl font-extrabold tracking-tight text-[#7C3AED]">{developmentCount} in progress</div>
+                    <p className="mt-1 text-xs text-[#64748B]">More useful ideas taking shape</p>
+                  </div>
+                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#F3F0FF] text-[#7C3AED]"><Code2 className="h-5 w-5" /></span>
                 </div>
               </div>
             </div>
@@ -68,7 +93,7 @@ export function ProjectShowcase() {
                 <a key={product.slug} href={hrefFor(product.slug)} className="product-index-row group relative grid gap-6 overflow-hidden rounded-3xl border border-[#E2E8F0] bg-[#FCFDFE] px-5 py-8 transition duration-300 hover:-translate-y-1 hover:border-[#C7D2FE] hover:bg-white hover:shadow-[0_10px_28px_rgba(40,56,216,0.06)] sm:px-7 lg:grid-cols-12 lg:items-center lg:px-8">
                   <GlowingEffect disabled={false} glow spread={36} proximity={48} inactiveZone={0.2} borderWidth={4} />
                 <div className="relative flex items-baseline gap-3 lg:col-span-1"><span className="crm-reveal font-mono text-3xl font-extrabold tracking-[-0.08em] text-[#111827] transition group-hover:text-[#2838D8]" style={{ animationDelay: `${index * 60}ms` }}>{String(index + 1).padStart(2, "0")}</span><span className="crm-reveal text-[10px] font-mono uppercase text-[#64748B] lg:hidden" style={{ animationDelay: `${index * 60 + 40}ms` }}>{product.category}</span></div>
-                  <div className="relative lg:col-span-3"><div className="mb-1 flex items-center gap-2"><span className="rounded bg-[#EEF0FF] px-2 py-0.5 text-[10px] font-mono font-bold uppercase text-[#7C2EDB]">{product.status}</span><span className="text-[11px] font-mono text-[#64748B]">{product.year}</span></div><h3 className="text-2xl font-black tracking-tight transition-all duration-300 group-hover:translate-x-1 group-hover:tracking-[-0.02em] group-hover:text-[#2838D8]"><DiaTextReveal as="span" text={product.title} /></h3><p className="text-xs font-mono text-[#64748B]">{product.category}</p></div>
+                  <div className="relative lg:col-span-3"><div className="mb-1 flex items-center gap-2"><span className={`inline-flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-mono font-bold uppercase ${liveProductSlugs.includes(product.slug) ? "bg-emerald-50 text-emerald-700" : "bg-[#F1F5F9] text-[#64748B]"}`}>{liveProductSlugs.includes(product.slug) ? <Radio className="h-3 w-3" aria-hidden="true" /> : <Code2 className="h-3 w-3" aria-hidden="true" />}{liveProductSlugs.includes(product.slug) ? "Live" : "Development"}</span><span className="text-[11px] font-mono text-[#64748B]">{product.year}</span></div><h3 className="text-2xl font-black tracking-tight transition-all duration-300 group-hover:translate-x-1 group-hover:tracking-[-0.02em] group-hover:text-[#2838D8]"><DiaTextReveal as="span" text={product.title} /></h3><p className="text-xs font-mono text-[#64748B]">{product.category}</p></div>
                   <p className="crm-reveal relative text-sm leading-relaxed text-[#475569] lg:col-span-4" style={{ animationDelay: `${index * 60 + 160}ms` }}>{product.shortDescription}</p>
                   <div className="relative flex items-center justify-between gap-4 lg:col-span-4 lg:justify-end"><div className="hidden h-10 w-16 items-center justify-center overflow-hidden border border-[#E2E8F0] bg-[#EEF0FF] text-[10px] font-mono font-bold text-[#2838D8] transition-transform duration-300 group-hover:scale-105 sm:flex">{product.title.slice(0, 3).toUpperCase()}</div><span className="grid h-10 w-10 place-items-center rounded-full border border-[#E2E8F0] transition duration-300 group-hover:border-[#2838D8] group-hover:bg-[#2838D8] group-hover:text-[#111827]"><ArrowRight className="action-arrow h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110" /></span></div>
                 </a>
